@@ -6,7 +6,7 @@ public:
 	void gameplayerdraw();
 private:
 	int GamePlayImg=0;
-	int Clip = 0;
+	int Chip = 0;
 	float Px=0;
 	float Py=0;
 	float PlayerPx = 0;

@@ -159,12 +159,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="07_3 C++ Action.cpp" />
     <ClCompile Include="Gameplay.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Rule.cpp" />
     <ClCompile Include="Title.cpp" />
-    <ClCompile Include="Trump.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
@@ -174,7 +172,6 @@
     <ClInclude Include="Gameplay.h" />
     <ClInclude Include="Rule.h" />
     <ClInclude Include="Title.h" />
-    <ClInclude Include="Trump.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,7 +4,7 @@
 
 void GAMEPLAY::gameplayinit(box* b) {
 	GamePlayImg = b->gameplayimg;
-	Clip = b->clip;
+	Chip = b->chip;
 	Px = b->px;
 	Py = b->py;
 	PlayerPx = b->playerpx;
@@ -14,6 +14,6 @@ void GAMEPLAY::gameplayinit(box* b) {
 }
 void GAMEPLAY::gameplayerdraw(){
 	drawImage(GamePlayImg, Px, Py,0.0f);
-	drawImage(Clip, PlayerPx, PlayerPy,0.0f);
-	drawImage(Clip, PcPx , PcPy , 0.0f);
+	drawImage(Chip, PlayerPx, PlayerPy,0.0f);
+	drawImage(Chip, PcPx , PcPy , 0.0f);
 }
