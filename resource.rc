@@ -1,0 +1,2 @@
+MYICON      ICON    "../framework/joypad.ico"
+MYSHADER    TEXT  "../framework/shader.fx"
