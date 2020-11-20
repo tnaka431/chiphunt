@@ -1,20 +1,15 @@
-#include "Title.h"
 #include"graphic.h"
-#include"box.h"
+#include "TITLE.h"
+#include"CONTAINER.h"
 
-/*TITLE::TITLE() {
-	TitleImg=0;
-	StartImg=0;
-	px=0;
-	py = 0;
-}*/
-void TITLE::titleinit(box* b) {
-	TitleImg = b->titleimg;
-	StartImg = b->startimg;
-	px = b->titlepx;
-	py = b->titlepy;
+
+void TITLE::titleinit(CONTAINER* c) {
+	TitleImg = c->titleimg;
+	StartImg = c->startimg;
+	px = c->titlepx;
+	py = c->titlepy;
 }
-void TITLE::titledraw(box* b) {
-	drawImage(TitleImg, px, py, 0.0f);
-	drawImage(StartImg, px, py + 200.0f, 0.0f);
+void TITLE::titledraw(CONTAINER* c) {
+	drawImage(TitleImg, px, py);
+	drawImage(StartImg, px+760.0f, py + 700.0f);
 }

@@ -159,19 +159,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Gameplay.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Rule.cpp" />
-    <ClCompile Include="Title.cpp" />
+    <ClCompile Include="CPU_CARD.cpp" />
+    <ClCompile Include="CPU_CHIP.cpp" />
+    <ClCompile Include="CPU_DICE.cpp" />
+    <ClCompile Include="GAME.cpp" />
+    <ClCompile Include="PLAYER_CHIP.cpp" />
+    <ClCompile Include="PLAYER_DICE.cpp" />
+    <ClCompile Include="NUMBER.cpp" />
+    <ClCompile Include="PLAY.cpp" />
+    <ClCompile Include="0_MAIN.cpp" />
+    <ClCompile Include="RESULT.cpp" />
+    <ClCompile Include="RULE.cpp" />
+    <ClCompile Include="TITLE.cpp" />
+    <ClCompile Include="PLAYER_CARD.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="box.h" />
-    <ClInclude Include="Gameplay.h" />
-    <ClInclude Include="Rule.h" />
-    <ClInclude Include="Title.h" />
+    <ClInclude Include="CONTAINER.h" />
+    <ClInclude Include="CPU_CARD.h" />
+    <ClInclude Include="CPU_CHIP.h" />
+    <ClInclude Include="CPU_DICE.h" />
+    <ClInclude Include="GAME.h" />
+    <ClInclude Include="PLAYER_CHIP.h" />
+    <ClInclude Include="PLAYER_DICE.h" />
+    <ClInclude Include="NUMBER.h" />
+    <ClInclude Include="PLAY.h" />
+    <ClInclude Include="RESULT.h" />
+    <ClInclude Include="RULE.h" />
+    <ClInclude Include="TITLE.h" />
+    <ClInclude Include="PLAYER_CARD.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,14 +1,13 @@
 #pragma once
 
-class box;
+class CONTAINER;
 class TITLE {
 public:
-	//TITLE();
-	void titleinit(box* b);
-	void titledraw(box* b);
+	void titleinit(CONTAINER* c);
+	void titledraw(CONTAINER* c);
 private:
-	int TitleImg;
-	int StartImg;
-	float px;
-	float py;
+	int TitleImg = 0;
+	int StartImg=0;
+	float px=0;
+	float py=0;
 };

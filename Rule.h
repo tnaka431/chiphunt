@@ -1,14 +1,15 @@
 #pragma once
-class box;
+class CONTAINER;
 
 class RULE {
 public:
-	void ruleinit(box* b);
+	void ruleinit(CONTAINER* c);
 	//void ruleupdate();
-	void ruledraw(box* b);
+	void ruledraw(CONTAINER* c);
 private:
-	int RuleImg;
-	float px;
-	float py;
+	int RuleImg = 0;
+	int ExpImg = 0;
+	float px = 0;
+	float py = 0;
 };
 
