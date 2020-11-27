@@ -100,41 +100,41 @@ public:
 	int chipimg = 0;
 	const float playerchip_px = 0.0f;
 	const float playerchip_py = 870.0f;
-	const float playerhavechip_px = 10.0f;
-	const float playerhavechip_py = 800.0f;
-	const float playerfieldchip_px = 10.0f;
-	const float playerfieldchip_py = 600.0f;
+	const float playerhavechip_px = 300.0f;
+	const float playerhavechip_py = 810.0f;
+	const float playerfieldchip_px = 260.0f;
+	const float playerfieldchip_py = 610.0f;
 	//playerダイス
 	int diceimg[6] = { 0 };
 	const float playerdice_px = 1550.0f;
 	const float playerdice_py = 850.0f;
-	const float playerdicenumber_px = 1600.0f;
-	const float playerdicenumber_py = 800.0f;
+	const float playerdicenumber_px = 1770.0f;
+	const float playerdicenumber_py = 810.0f;
 	//player カード
 	int allcardimg = 0;
 	int allburstcardimg = 0;
 	const float playercard_px = 525.0f;
 	const float playercard_py = 900.0f;
-	const float playercardnumber_px = 500.0f;
-	const float playercardnumber_py = 800.0f;
+	const float playercardnumber_px = 1000.0f;
+	const float playercardnumber_py = 810.0f;
 	//cpuチップ
 	const float cpuchip_px = 0.0f;
 	const float cpuchip_py = 0.0f;
-	const float cpuhavechip_px = 10.0f;
-	const float cpuhavechip_py = 200.0f;
-	const float cpufieldchip_px = 10.0f;
-	const float cpufieldchip_py =400.0f;
+	const float cpuhavechip_px = 300.0f;
+	const float cpuhavechip_py = 220.0f;
+	const float cpufieldchip_px = 260.0f;
+	const float cpufieldchip_py =410.0f;
 	//cpuダイス
 	const float cpudice_px = 1600.0f;
 	const float cpudice_py = 0.0f;
-	const float cpudicenumber_px = 1600.0f;
-	const float cpudicenumber_py = 200.0f;
+	const float cpudicenumber_px = 1770.0f;
+	const float cpudicenumber_py = 220.0f;
 	//cpu カード
 	int cpucardimg = 0;
 	const float cpucard_px = 1125.0f;
 	const float cpucard_py = 0.0f;
-	const float cpucardnumber_px = 1225.0f;
-	const float cpucardnumber_py = 200.0f;
+	const float cpucardnumber_px = 1000.0f;
+	const float cpucardnumber_py = 218.0f;
 	//ゲーム
 	int flowimg[15] = { 0 };
 	int arrowimg = 0;

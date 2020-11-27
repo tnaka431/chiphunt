@@ -45,7 +45,7 @@ void CPU_DICE::cpu_dicedraw(NUMBER* num) {
 		drawImage(DiceImg[Dice[i]], (DicePx + 50.0f) + 100.0f * (i - 3), (DicePy + 100.0f));
 	}
 	//ƒ_ƒCƒX‚Ì”
-	num->NumberPx = 1800.0f;
+	num->NumberPx = 1770.0f;
 	num->NumberPy = DiceNumberPy;
 	num->Value = DiceSum;
 	num->s_numberdraw();

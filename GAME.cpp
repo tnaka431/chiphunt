@@ -93,6 +93,10 @@ void GAME::Proc() {
 	//仮
 	int hai = loadImage("「はい」.png");
 	int iie = loadImage("「いいえ」.png");
+	int motichip = loadImage("持ちチップの数.png");
+	int bachip = loadImage("場のチップ.png");
+	int cardsu = loadImage("カードの合計値.png");
+	int dicesu = loadImage("出目の合計数.png");
 	setRandSeed();
 	while (msgProc()) {
 		getInput();
@@ -101,7 +105,7 @@ void GAME::Proc() {
 		//タイトル画面
 		case TITLE_state:
 			title->titledraw(c);
-			if (isTrigger(KEY_Z)) { State = RESULT_state; }
+			if (isTrigger(KEY_Z)) { State = RULE_state; }
 			break;
 		//ルール画面
 		case RULE_state:
@@ -136,6 +140,16 @@ void GAME::Proc() {
 			player_dice->player_dicedraw(number);
 			player_card->player_carddraw(number, player_dice);
 			cpu_card->cpu_carddraw1();
+			//仮
+			drawImage(motichip, 0.0f, 210.0f);
+			drawImage(motichip, 0.0f, 800.0f);
+			drawImage(bachip, 0.0f, 400.0f);
+			drawImage(bachip, 0.0f, 600.0f);
+			drawImage(cardsu, 700.0f, 210.0f);
+			drawImage(cardsu, 700.0f, 800.0f);
+			drawImage(dicesu, 1500.0f, 210.0f);
+			drawImage(dicesu, 1500.0f, 800.0f);
+			
 			switch (Flow) {
 
 			//ゲームスタート
@@ -394,10 +408,6 @@ void GAME::Proc() {
 						}
 					}
 				}
-				number->Value = CpuAddChip;
-				number->NumberPy = 500.0f;
-				number->NumberPx = 200.0f;
-				number->s_numberdraw();
 				//引き分け画面へ
 				if (player_card->Player_CardTotal == cpu_card->Cpu_CardTotal || BurstCnt == 1 && cpu_card->BurstCnt == 1) {
 					if (isTrigger(KEY_Z)) { Flow = draw; }
@@ -552,6 +562,7 @@ void GAME::Proc() {
 			result->cpuscore(number);
 			result->PlayerScore = player_chip->HaveChip;
 			result->CpuScore = cpu_chip->HaveChip;
+			Cnt = 0;
 
 			if (result->PlayerScore > result->CpuScore) {
 				drawImage(FlowImg[12], FlowPx, FlowPy + 130.0f);

@@ -43,7 +43,7 @@ void PLAYER_DICE::player_dicedraw(NUMBER*num) {
 		drawImage(DiceImg[Dice[i]], (DicePx + 50.0f) + 100.0f * (i - 3), (DicePy + 100.0f));
 	}
 	//ƒ_ƒCƒX‚Ì”
-	num->NumberPx = 1550.0f;
+	num->NumberPx = 1770.0f;
 	num->NumberPy = DiceNumberPy;
 	DiceSum = Deme[0] + Deme[1] + Deme[2] + Deme[3] + Deme[4] + 5;
 	num->Value = DiceSum;
