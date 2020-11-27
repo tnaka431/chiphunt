@@ -4,15 +4,16 @@
 #include"CONTAINER.h"
 
 void RULE::ruleinit(CONTAINER* c) {
-	RuleImg = c->ruleimg;
-	ExpImg = c->expimg;
+	RuleImg1 = c->ruleimg1;
+	RuleImg2 = c->ruleimg2;
 	px = c->px;
 	py = c->py;
 }
-//void updateRule(RULE_DATA* th) {}
-void RULE::ruledraw(CONTAINER* c) {
-	drawImage(RuleImg, px, py);
-	drawImage(ExpImg, px, py);
-	drawImage(c->startimg, px+760.0f, py + 980.0f);
-	//drawImage(c->backscreen, px, py,0.0f,COLOR(0.0f,0.0f,0.0f,c->back));
+void RULE::ruledraw1(CONTAINER* c) {
+	drawImage(RuleImg1, px, py);
+	drawImage(c->startimg, px+760.0f, py + 1000.0f);
+}
+void RULE::ruledraw2(CONTAINER* c) {
+	drawImage(RuleImg2, px, py);
+	drawImage(c->startimg, px + 760.0f, py +1000.0f);
 }

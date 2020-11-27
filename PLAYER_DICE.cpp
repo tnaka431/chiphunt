@@ -16,7 +16,6 @@ void PLAYER_DICE::player_diceinit(CONTAINER* c) {
 }
 void PLAYER_DICE::player_diceupdate() {
 	if(DiceCnt == 1) {
-
 		if (isTrigger(KEY_Z)) {
 			DiceCnt = 2;
 		}
@@ -46,7 +45,18 @@ void PLAYER_DICE::player_dicedraw(NUMBER*num) {
 	//ƒ_ƒCƒX‚Ì”
 	num->NumberPx = 1550.0f;
 	num->NumberPy = DiceNumberPy;
-	num->Value= Deme[0] + Deme[1] + Deme[2] + Deme[3] + Deme[4] + 5;
-	num->numberdraw();
+	DiceSum = Deme[0] + Deme[1] + Deme[2] + Deme[3] + Deme[4] + 5;
+	num->Value = DiceSum;
+	num->s_numberdraw();
 	
+}
+void PLAYER_DICE::player_dicenew() {
+	for (int i = 0; i < 6; i++) {
+		Dice[i] = 0;
+	}
+	for (int i = 0; i < 5; i++) {
+		Deme[i] = 0;
+	}
+	DiceCnt = 0;
+	DiceSum = 0;
 }

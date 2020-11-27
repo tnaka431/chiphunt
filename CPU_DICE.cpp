@@ -15,19 +15,20 @@ void CPU_DICE::cpu_diceinit(CONTAINER* c) {
 	DiceNumberPy = c->cpudicenumber_py;
 }
 void CPU_DICE::cpu_diceupdate() {
-	if (DiceCnt == 1) {
+	if (CpuCnt == 1) {
 
 		if (isTrigger(KEY_Z)) {
-			DiceCnt = 2;
+			DiceSum = Deme[0] + Deme[1] + Deme[2] + Deme[3] + Deme[4] + 5;
+			CpuCnt = 2;
 		}
 	}
-	if (DiceCnt == 0) {
+	if (CpuCnt == 0) {
 		if (isTrigger(KEY_Z)) {
-			DiceCnt = 1;
+			CpuCnt = 1;
 		}
 	}
 
-	if (DiceCnt == 1) {
+	if (CpuCnt == 1) {
 		for (int i = 0; i < 6; i++) {
 			Dice[i] = getRand() % 6;
 			Deme[i] = Dice[i];
@@ -46,7 +47,17 @@ void CPU_DICE::cpu_dicedraw(NUMBER* num) {
 	//ƒ_ƒCƒX‚Ì”
 	num->NumberPx = 1800.0f;
 	num->NumberPy = DiceNumberPy;
-	num->Value = Deme[0] + Deme[1] + Deme[2] + Deme[3] + Deme[4] + 5;
-	num->numberdraw();
+	num->Value = DiceSum;
+	num->s_numberdraw();
 
+}
+void CPU_DICE::cpu_dicenew() {
+	for (int i = 0; i < 6; i++) {
+		Dice[i] = 0;
+	}
+	for (int i = 0; i < 5; i++) {
+		Deme[i] = 0;
+	}
+	CpuCnt = 0;
+	DiceSum = 0;
 }

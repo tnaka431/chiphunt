@@ -17,10 +17,10 @@ void CPU_CHIP::cpu_chipdraw(NUMBER*num) {
 	num->NumberPx = Cpu_HChipPx;
 	num->NumberPy = Cpu_HChipPy;
 	num->Value = HaveChip;
-	num->numberdraw();
+	num->s_numberdraw();
 	//ê‚Ìƒ`ƒbƒv‚Ì”
 	num->Value = GiveChip;
 	num->NumberPx = Cpu_FChipPx;
 	num->NumberPy = Cpu_FChipPy;
-	num->numberdraw();
+	num->s_numberdraw();
 }

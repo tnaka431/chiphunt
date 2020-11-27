@@ -17,10 +17,10 @@ void PLAYER_CHIP::player_chipdraw(NUMBER*num) {
 	num->NumberPx = Player_HChipPx;
 	num->NumberPy = Player_HChipPy;
 	num->Value = HaveChip;
-	num->numberdraw();
+	num->s_numberdraw();
 	//ê‚Ìƒ`ƒbƒv‚Ì”
 	num->Value = GiveChip;
 	num->NumberPx = Player_FChipPx;
 	num->NumberPy = Player_FChipPy;
-	num->numberdraw();
+	num->s_numberdraw();
 }
