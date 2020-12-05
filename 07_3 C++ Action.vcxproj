@@ -162,7 +162,9 @@
     <ClCompile Include="CPU_CARD.cpp" />
     <ClCompile Include="CPU_CHIP.cpp" />
     <ClCompile Include="CPU_DICE.cpp" />
+    <ClCompile Include="FLOW.cpp" />
     <ClCompile Include="GAME.cpp" />
+    <ClCompile Include="CHIP.cpp" />
     <ClCompile Include="PLAYER_CHIP.cpp" />
     <ClCompile Include="PLAYER_DICE.cpp" />
     <ClCompile Include="NUMBER.cpp" />
@@ -170,6 +172,7 @@
     <ClCompile Include="0_MAIN.cpp" />
     <ClCompile Include="RESULT.cpp" />
     <ClCompile Include="RULE.cpp" />
+    <ClCompile Include="STATE.cpp" />
     <ClCompile Include="TITLE.cpp" />
     <ClCompile Include="PLAYER_CARD.cpp" />
   </ItemGroup>
@@ -181,13 +184,16 @@
     <ClInclude Include="CPU_CARD.h" />
     <ClInclude Include="CPU_CHIP.h" />
     <ClInclude Include="CPU_DICE.h" />
+    <ClInclude Include="FLOW.h" />
     <ClInclude Include="GAME.h" />
+    <ClInclude Include="CHIP.h" />
     <ClInclude Include="PLAYER_CHIP.h" />
     <ClInclude Include="PLAYER_DICE.h" />
     <ClInclude Include="NUMBER.h" />
     <ClInclude Include="PLAY.h" />
     <ClInclude Include="RESULT.h" />
     <ClInclude Include="RULE.h" />
+    <ClInclude Include="STATE.h" />
     <ClInclude Include="TITLE.h" />
     <ClInclude Include="PLAYER_CARD.h" />
   </ItemGroup>

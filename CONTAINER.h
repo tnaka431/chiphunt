@@ -3,6 +3,8 @@
 #include "graphic.h"
 #include"framework.h"
 #include"COLOR.h"
+#include"sound.h"
+#include"CHIP.h"
 
 class CONTAINER {
 public:
@@ -24,6 +26,11 @@ public:
 		s_numberimg[7] = { loadImage("Number_7_short.png") };
 		s_numberimg[8] = { loadImage("Number_8_short.png") };
 		s_numberimg[9] = { loadImage("Number_9_short.png") };
+		m_numberimg[0] = { loadImage("「１」.png") };
+		m_numberimg[1] = { loadImage("「２」.png") };
+		m_numberimg[2] = { loadImage("「３」.png") };
+		m_numberimg[3] = { loadImage("「４」.png") };
+		m_numberimg[4] = { loadImage("「５」.png") };
 		b_numberimg[0] = { loadImage("Number_0.png") };
 		b_numberimg[1] = { loadImage("Number_1.png") };
 		b_numberimg[2] = { loadImage("Number_2.png") };
@@ -40,17 +47,18 @@ public:
 		diceimg[3] = { loadImage("Dice_4.png")};
 		diceimg[4] = { loadImage("Dice_5.png")};
 		diceimg[5] = { loadImage("Dice_6.png")};
-		allcardimg = loadImage("トランプ横列.png");
-		allburstcardimg = loadImage("トランプ横列(灰).png");
+		allcardimg = loadImage("トランプ横列.png");//
+		allburstcardimg = loadImage("トランプ横列(灰).png");//
 		cpucardimg = loadImage("card.png");
-		resultimg = loadImage("Result(仮).png");
+		resultimg = loadImage("result screen.png");
+		kekkaimg = loadImage("PLAYER-CPU.png");
 		backscreen = loadImage("black.png");
 		flowimg[0] = loadImage("「ゲームスタート」.png");
 		flowimg[1] = loadImage("「チップを配ります」.png");
-		flowimg[2] = loadImage("1_0round.png");
+		flowimg[2] = loadImage("「回戦目」.png");
 		flowimg[3] = loadImage("「チップを支払ってください」.png");
 		flowimg[4] = loadImage("「サイコロを振ります」.png");
-		flowimg[5] = loadImage("「カードを引きますか？」2.png");
+		flowimg[5] = loadImage("「カードを引きますか？」.png");
 		flowimg[6] = loadImage("「カードを加えます」.png");
 		flowimg[7] = loadImage("「バーストしました」.png");
 		flowimg[8] = loadImage("「上乗せしますか？」.png");
@@ -61,7 +69,38 @@ public:
 		flowimg[13] = loadImage("LOSE.png");
 		flowimg[14] = loadImage("DRAW.png");
 		arrowimg = loadImage("矢印1.png");
+		yesimg = loadImage("「はい」.png");
+		noimg = loadImage("「いいえ」.png");
+		//仮
+		motichip = loadImage("持ちチップの数.png");
+		bachip = loadImage("場のチップ.png");
+		cardsu = loadImage("カードの合計値.png");
+		dicesu = loadImage("出目の合計数.png");
+		//音
+		titlebgm = loadSound("タイトルBGM.wav");
+		gamebgm = loadSound("ゲームBGM.wav");
+		resultbgm = loadSound("リザルトBGM.wav");
+		enter = loadSound("決定ボタンSE.wav");
+		dicese1 = loadSound("サイコロSE1.wav");
+		dicese2 = loadSound("サイコロSE2.wav");
+		dicese3 = loadSound("サイコロSE3.wav");
+		chipse1 = loadSound("チップSE1.wav");
+		chipse2 = loadSound("チップSE2.wav");
+		cardse1 = loadSound("カードSE1.wav");
+		cardse2 = loadSound("カードSE2.wav");
+		burstse = loadSound("バースト.wav");
+		winse = loadSound("勝ち.wav");
+		losese = loadSound("負け.wav");
+
 	};
+	struct container {
+		int img;
+		float px;
+		float py;
+		
+	};
+//	container title;
+
 	const int screenpx = 1920;
 	const int screenpy = 1080;
 	const float px = 0.0f;
@@ -76,23 +115,25 @@ public:
 	//ルール
 	int ruleimg1 = 0;
 	int ruleimg2 = 0;
-
 	const float rulepx = px;
 	const float rulepy = py;
 	//プレイ
 	int playimg = 0;
+	int playbgm = 0;
 	//リザルト
 	int resultimg = 0;
+	int kekkaimg = 0;
 	//int startimg = 0;
 	//int backscreen = 0;
 	const float resultpx = px;
 	const float resultpy = py;
-	const float playerscore_px = 500.0f;
+	const float playerscore_px = 525.0f;
 	const float playerscore_py = 400.0f;
-	const float cpuscore_px = 1150.0f;
+	const float cpuscore_px = 1200.0f;
 	const float cpuscore_py = 400.0f;
 	//数字
 	int s_numberimg[10] = { 0 };
+	int m_numberimg[5] = { 0 };
 	int b_numberimg[10] = { 0 };
 	const int kurai = 10;
 	const int vol = 0;
@@ -138,10 +179,37 @@ public:
 	//ゲーム
 	int flowimg[15] = { 0 };
 	int arrowimg = 0;
+	int yesimg = 0;
+	int noimg = 0;
 	const float flowpx = 550.0f;
 	const float flowpy = 450.0f;
 	const float arrow1px = 750.0f;
 	const float arrow2px = 1015.0f;
-	const float arrowpy = 670.0f;
+	const float arrowpy = 655.0f;
+	const float yespx = 800.0f;
+	const float yespy = 650.0f;
+	const float nopx = 1080.0f;
+	const float nopy = 650.0f;
 	int cpudis = 0;
+	//BGM
+//	int titlebgm = 0;
+	//仮
+	int motichip = 0;
+	int bachip = 0;
+	int cardsu = 0;
+	int dicesu = 0;
+	int titlebgm = 0;
+	int gamebgm = 0;
+	int resultbgm =0;
+	int enter = 0;
+	int dicese1 =0;
+	int dicese2 =0;
+	int dicese3 = 0;
+	int chipse1 = 0;
+	int chipse2 = 0;
+	int cardse1 =0;
+	int cardse2 = 0;
+	int burstse = 0;
+	int winse = 0;
+	int losese = 0;
 };

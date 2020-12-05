@@ -5,6 +5,7 @@
 void NUMBER::numberinit(CONTAINER* c) {
 	for (int i = 0; i < 10; i++) { S_NumberImg[i] = c->s_numberimg[i]; }
 	for (int j = 0; j < 10; j++) { B_NumberImg[j] = c->b_numberimg[j]; }
+	for (int i = 0; i < 5; i++) { M_NumberImg[i] = c->m_numberimg[i]; }
 	Kurai = c->kurai;
 }
 void NUMBER::s_numberdraw() {
@@ -26,3 +27,7 @@ void NUMBER::b_numberdraw() {
 	}
 }
 //’†‚­‚ç‚¢‚ÌˆêŒ…”š
+void NUMBER::m_numberdraw() {
+	Vol = Value;
+	drawImage(M_NumberImg[Vol], NumberPx, NumberPy);
+}

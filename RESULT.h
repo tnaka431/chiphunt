@@ -11,6 +11,7 @@ public:
 	int CpuScore = 0;
 private:
 	int ResultImg = 0;
+	int KekkaImg = 0;
 	float Px=0;
 	float Py=0;
 	float PlayerScorePx = 0;

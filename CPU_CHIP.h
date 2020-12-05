@@ -16,3 +16,9 @@ private:
 	float Cpu_FChipPx = 0;
 	float Cpu_FChipPy = 0;
 };
+/*
+class CPU_CHIP :public CHIP {
+	void init(CONTAINER*c);
+	void update(CONTAINER*c);
+	void draw(NUMBER* num);
+};*/

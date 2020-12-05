@@ -11,6 +11,9 @@ class CPU_CHIP;
 class CPU_DICE;
 class CPU_CARD;
 class RESULT;
+class FLOW;
+class STATE;
+class CHIP;
 
 class GAME {
 public:
@@ -30,6 +33,12 @@ private:
 	CPU_DICE* cpu_dice;
 	CPU_CARD* cpu_card;
 	RESULT* result;
+	FLOW* flow;
+	STATE* state;
+	GAME* game;
+	CHIP* chip = 0;
+	/*enum FLOWSTATE {GAMESTART, GIVECHIP, ROUND ,PAYCHIP,  SHAKEDICE ,PULLCARD,  ADDCARD, BURST,  ADDCHIP,  MUCHCHIP, DISGAME, FIGHT,  WIN,  LOSE,  DRAW,};
+	enum GAMESTATE {TITLE_STATE,RULE_STATE,PLAY_STATE,RESULT_STATE};
 	int FlowImg[15] = { 0 };
 	float FlowPx = 0;
 	float FlowPy = 0;
@@ -48,5 +57,5 @@ private:
 	int HaveCnt = 0;
 	int Difference = 0;
 	int CpuAddChip = 0;
-	int CpuAddCnt = 0;
+	int CpuAddCnt = 0;*/
 };

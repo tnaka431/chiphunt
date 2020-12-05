@@ -18,4 +18,5 @@ private:
 	int Deme[5] = { 0 };
 	float DiceNumberPx = 0;
 	float DiceNumberPy = 0;
+	int DiceSe1 = 0;
 };

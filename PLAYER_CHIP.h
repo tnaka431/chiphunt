@@ -16,3 +16,8 @@ private:
 	float Player_FChipPx = 0;
 	float Player_FChipPy = 0;
 };
+/*class PLAYER_CHIP :public CHIP {
+	void init(CONTAINER* c);
+	void update(CONTAINER* c);
+	void draw(NUMBER* num);
+};*/

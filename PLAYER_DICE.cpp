@@ -13,8 +13,10 @@ void PLAYER_DICE::player_diceinit(CONTAINER* c) {
 	DicePy = c->playerdice_py;
 	DiceNumberPx = c->playerdicenumber_px;
 	DiceNumberPy = c->playerdicenumber_py;
+	DiceSe1 = c->dicese1;
 }
 void PLAYER_DICE::player_diceupdate() {
+		//playSound(DiceSe1);
 	if(DiceCnt == 1) {
 		if (isTrigger(KEY_Z)) {
 			DiceCnt = 2;

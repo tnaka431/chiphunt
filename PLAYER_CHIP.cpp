@@ -24,3 +24,17 @@ void PLAYER_CHIP::player_chipdraw(NUMBER*num) {
 	num->NumberPy = Player_FChipPy;
 	num->s_numberdraw();
 }
+/*void PLAYER_CHIP::init(CONTAINER* c) {
+};
+void PLAYER_CHIP::update(CONTAINER* c) {
+	ChipPx = c->cpuchip_px;
+	ChipPy = c->cpuchip_py;
+	HavePx = c->cpuhavechip_px;
+	HavePy = c->cpuhavechip_py;
+	GivePx = c->cpufieldchip_px;
+	GivePy = c->cpufieldchip_py;
+	HaveChip=0;
+	GiveChip=0;
+}
+void PLAYER_CHIP::draw(NUMBER* num) {
+};*/

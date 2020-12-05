@@ -5,6 +5,7 @@
 
 void RESULT::resultinit(CONTAINER* c) {
 	ResultImg = c->resultimg;
+	KekkaImg = c->kekkaimg;
 	Px = c->resultpx;
 	Py = c->resultpy;
 	PlayerScorePx = c->playerscore_px;
@@ -13,7 +14,10 @@ void RESULT::resultinit(CONTAINER* c) {
 	CpuScorePy = c->cpuscore_py;
 }
 
-void RESULT::resultdraw() {drawImage(ResultImg, Px, Py);}
+void RESULT::resultdraw() {
+	drawImage(ResultImg, Px, Py);
+	drawImage(KekkaImg, 390.0f,250.0f);
+}
 
 void RESULT::playerscore(NUMBER* num) {
 	num->NumberPx = PlayerScorePx;

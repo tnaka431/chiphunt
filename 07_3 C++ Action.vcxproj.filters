@@ -14,6 +14,9 @@
     <ClCompile Include="CPU_CHIP.cpp" />
     <ClCompile Include="GAME.cpp" />
     <ClCompile Include="RESULT.cpp" />
+    <ClCompile Include="FLOW.cpp" />
+    <ClCompile Include="STATE.cpp" />
+    <ClCompile Include="CHIP.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
@@ -32,5 +35,8 @@
     <ClInclude Include="CPU_CHIP.h" />
     <ClInclude Include="GAME.h" />
     <ClInclude Include="RESULT.h" />
+    <ClInclude Include="FLOW.h" />
+    <ClInclude Include="STATE.h" />
+    <ClInclude Include="CHIP.h" />
   </ItemGroup>
 </Project>
