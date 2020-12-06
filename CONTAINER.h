@@ -47,12 +47,11 @@ public:
 		diceimg[3] = { loadImage("Dice_4.png")};
 		diceimg[4] = { loadImage("Dice_5.png")};
 		diceimg[5] = { loadImage("Dice_6.png")};
-		allcardimg = loadImage("トランプ横列.png");//
-		allburstcardimg = loadImage("トランプ横列(灰).png");//
+		allcardimg = loadImage("トランプ(白).png");
+		allburstcardimg = loadImage("トランプ(灰).png");
 		cpucardimg = loadImage("card.png");
 		resultimg = loadImage("result screen.png");
 		kekkaimg = loadImage("PLAYER-CPU.png");
-		backscreen = loadImage("black.png");
 		flowimg[0] = loadImage("「ゲームスタート」.png");
 		flowimg[1] = loadImage("「チップを配ります」.png");
 		flowimg[2] = loadImage("「回戦目」.png");
@@ -71,11 +70,11 @@ public:
 		arrowimg = loadImage("矢印1.png");
 		yesimg = loadImage("「はい」.png");
 		noimg = loadImage("「いいえ」.png");
-		//仮
 		motichip = loadImage("持ちチップの数.png");
-		bachip = loadImage("場のチップ.png");
+		bachip = loadImage("場のチップ数.png");
 		cardsu = loadImage("カードの合計値.png");
 		dicesu = loadImage("出目の合計数.png");
+		backscreen = loadImage("black.png");
 		//音
 		titlebgm = loadSound("タイトルBGM.wav");
 		gamebgm = loadSound("ゲームBGM.wav");
@@ -91,6 +90,7 @@ public:
 		burstse = loadSound("バースト.wav");
 		winse = loadSound("勝ち.wav");
 		losese = loadSound("負け.wav");
+		drawse = loadSound("ドローSE.wav");
 
 	};
 	struct container {
@@ -99,7 +99,6 @@ public:
 		float py;
 		
 	};
-//	container title;
 
 	const int screenpx = 1920;
 	const int screenpy = 1080;
@@ -109,7 +108,6 @@ public:
 	//タイトル
 	int titleimg = 0;
 	int startimg = 0;
-	int backscreen = 0;
 	const float titlepx = px;
 	const float titlepy = py;
 	//ルール
@@ -120,11 +118,13 @@ public:
 	//プレイ
 	int playimg = 0;
 	int playbgm = 0;
+	int motichip = 0;
+	int bachip = 0;
+	int cardsu = 0;
+	int dicesu = 0;
 	//リザルト
 	int resultimg = 0;
 	int kekkaimg = 0;
-	//int startimg = 0;
-	//int backscreen = 0;
 	const float resultpx = px;
 	const float resultpy = py;
 	const float playerscore_px = 525.0f;
@@ -192,12 +192,6 @@ public:
 	const float nopy = 650.0f;
 	int cpudis = 0;
 	//BGM
-//	int titlebgm = 0;
-	//仮
-	int motichip = 0;
-	int bachip = 0;
-	int cardsu = 0;
-	int dicesu = 0;
 	int titlebgm = 0;
 	int gamebgm = 0;
 	int resultbgm =0;
@@ -212,4 +206,7 @@ public:
 	int burstse = 0;
 	int winse = 0;
 	int losese = 0;
+	int drawse = 0;
+	//FEED
+	int backscreen = 0;
 };

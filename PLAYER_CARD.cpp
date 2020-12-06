@@ -10,7 +10,7 @@ void PLAYER_CARD::player_cardinit(CONTAINER* c) {
 	AllCardImg = c->allcardimg;
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 13; j++) {
-			CardImg[j + i * 13] = divideImage(AllCardImg, 111 + 140 * j, 13 + 196 * i, 121, 180);
+			CardImg[j + i * 13] = divideImage(AllCardImg, 19 + 140 * j, 13 + 196 * i, 121, 180);
 		}
 	}
 	PlayerCard_Px = c->playercard_px;
@@ -21,7 +21,7 @@ void PLAYER_CARD::player_cardinit(CONTAINER* c) {
 	AllBarstImg = c->allburstcardimg;
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 13; j++) {
-			BarstImg[j + i * 13] = divideImage(AllBarstImg, 111 + 140 * j, 13 + 196 * i, 121, 180);
+			BarstImg[j + i * 13] = divideImage(AllBarstImg, 19 + 140 * j, 13 + 196 * i, 121, 180);
 		}
 	}
 }

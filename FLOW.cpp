@@ -10,6 +10,7 @@
 #include"CPU_CARD.h"
 #include"FLOW.h"
 #include "STATE.h"
+#include"FEED.h"
 
 void FLOW::init(CONTAINER* c) {
 	for (int i = 0; i < 15; i++) {
@@ -42,8 +43,9 @@ void FLOW::init(CONTAINER* c) {
 	BurstSe = c->burstse;
 	WinSe = c->winse;
 	LoseSe = c->losese;
+	DrawSe = c->drawse;
 }
-void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice, CPU_CARD* cpu_card, CPU_CHIP* cpu_chip, CPU_DICE* cpu_dice,STATE*state) {
+void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice, CPU_CARD* cpu_card, CPU_CHIP* cpu_chip, CPU_DICE* cpu_dice,STATE*state,FEED*feed) {
 	player_chip->player_chipdraw(number);
 	cpu_chip->cpu_chipdraw(number);
 	player_dice->player_dicedraw(number);
@@ -548,16 +550,30 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		cpu_card->cpu_carddraw2(number, cpu_dice);
 
 		drawImage(FlowImg[14], FlowPx, FlowPy - 25.0f);
-		if (state->RoundCnt == 4) {
-			if (isTrigger(KEY_Z)) { 
-				state->State = state->RESULT_STATE; 
+		if (player_chip->HaveChip < 3) {
+			if (isTrigger(KEY_Z)) {
+				state->State = state->RESULT_STATE;
 				state->RoundCnt = 0;
 				stopSound(state->GameBgm);
 				playLoopSound(state->ResultBgm);
 				playSound(Enter);
+				playSound(DrawSe);
+				Flow = GAMESTART;
+			}
+			break;
+		}
+		if (state->RoundCnt == 4) {
+			if (isTrigger(KEY_Z)) { 
+				state->State = state->RESULT_STATE;
+				state->RoundCnt = 0;
+				stopSound(state->GameBgm);
+				playLoopSound(state->ResultBgm);
+				playSound(DrawSe);
+				playSound(Enter);
 				Flow = GAMESTART;
 			}
 		}
+
 		else {
 			if (isTrigger(KEY_Z)) {
 				state->RoundCnt++;

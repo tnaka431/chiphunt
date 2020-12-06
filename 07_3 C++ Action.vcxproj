@@ -162,6 +162,7 @@
     <ClCompile Include="CPU_CARD.cpp" />
     <ClCompile Include="CPU_CHIP.cpp" />
     <ClCompile Include="CPU_DICE.cpp" />
+    <ClCompile Include="FEED.cpp" />
     <ClCompile Include="FLOW.cpp" />
     <ClCompile Include="GAME.cpp" />
     <ClCompile Include="CHIP.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="CPU_CARD.h" />
     <ClInclude Include="CPU_CHIP.h" />
     <ClInclude Include="CPU_DICE.h" />
+    <ClInclude Include="FEED.h" />
     <ClInclude Include="FLOW.h" />
     <ClInclude Include="GAME.h" />
     <ClInclude Include="CHIP.h" />

@@ -22,6 +22,8 @@
 #include"FLOW.h"
 #include"STATE.h"
 
+#include"FEED.h"
+
 
 GAME::GAME(){
 	c = new CONTAINER;
@@ -38,6 +40,7 @@ GAME::GAME(){
 	result = new RESULT;
 	flow = new FLOW;
 	state = new STATE;
+	feed = new FEED;
 	title->titleinit(c);
 	rule->ruleinit(c);
 	play->playinit(c);
@@ -51,6 +54,8 @@ GAME::GAME(){
 	result->resultinit(c);
 	flow->init(c);
 	state->init(c);
+
+	feed->init(c);
 
 }
 GAME::~GAME(){
@@ -68,17 +73,21 @@ GAME::~GAME(){
 	delete result ;
 	delete flow;
 	delete state;
+
+	delete feed;
  }
 
 
 void GAME::Proc() {
+
 	playLoopSound(state->TitleBgm);
 	setRandSeed();
 	while (msgProc()) {
 		getInput();
 		clearTarget();
+	
 		//clearTarget(COLOR(0.0f, 0.255f, 0.0f));
-		state->update(c, title, rule, play, result, number, player_card, player_chip, player_dice, cpu_card, cpu_chip, cpu_dice, flow, state,game);
+		state->update(c, title, rule, play, result, number, player_card, player_chip, player_dice, cpu_card, cpu_chip, cpu_dice, flow, state,game,feed);
 		present();
 	}
 

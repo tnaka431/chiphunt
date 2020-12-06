@@ -14,10 +14,14 @@ class CPU_DICE;
 class FLOW;
 class GAME;
 class CHIP;
+
+class FEED;
 class STATE {
 public:
 	void init(CONTAINER* c);
-	void update(CONTAINER* c, TITLE* title, RULE* rule, PLAY* play, RESULT* result,NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice, CPU_CARD* cpu_card, CPU_CHIP* cpu_chip, CPU_DICE* cpu_dice,FLOW*flow,STATE*state,GAME*game);
+	void update(CONTAINER* c, TITLE* title, RULE* rule, PLAY* play, RESULT* result,NUMBER* number,
+		PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice, 
+		CPU_CARD* cpu_card,CPU_CHIP* cpu_chip,CPU_DICE* cpu_dice,FLOW*flow,STATE*state,GAME*game,FEED*feed);
 	enum GAMESTATE { TITLE_STATE, RULE_STATE, PLAY_STATE, RESULT_STATE };
 	int State = 0;
 	int RoundCnt = 0;

@@ -17,6 +17,7 @@
     <ClCompile Include="FLOW.cpp" />
     <ClCompile Include="STATE.cpp" />
     <ClCompile Include="CHIP.cpp" />
+    <ClCompile Include="FEED.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
@@ -38,5 +39,6 @@
     <ClInclude Include="FLOW.h" />
     <ClInclude Include="STATE.h" />
     <ClInclude Include="CHIP.h" />
+    <ClInclude Include="FEED.h" />
   </ItemGroup>
 </Project>

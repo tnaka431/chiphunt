@@ -15,13 +15,13 @@ void CPU_CARD::cpu_cardinit(CONTAINER* c) {
 	AllCardImg = c->allcardimg;
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 13; j++) {
-			TureCpuCardImg[j + i * 13] = divideImage(AllCardImg, 111 + 140 * j, 13 + 196 * i, 121, 180);
+			TureCpuCardImg[j + i * 13] = divideImage(AllCardImg, 19 + 140 * j, 13 + 196 * i, 121, 180);
 		}
 	}
 	AllBurstImg = c->allburstcardimg;
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 13; j++) {
-			BurstImg[j + i * 13] = divideImage(AllBurstImg, 111 + 140 * j, 13 + 196 * i, 121, 180);
+			BurstImg[j + i * 13] = divideImage(AllBurstImg, 19 + 140 * j, 13 + 196 * i, 121, 180);
 		}
 	}
 }
