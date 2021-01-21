@@ -15,7 +15,7 @@ class FLOW;
 class STATE;
 class CHIP;
 
-class FEED;
+class FADE;
 class GAME {
 public:
 	GAME();
@@ -38,7 +38,7 @@ private:
 	STATE* state;
 	GAME* game;
 	CHIP* chip = 0;
-	FEED* feed;
+	FADE* fade;
 	/*enum FLOWSTATE {GAMESTART, GIVECHIP, ROUND ,PAYCHIP,  SHAKEDICE ,PULLCARD,  ADDCARD, BURST,  ADDCHIP,  MUCHCHIP, DISGAME, FIGHT,  WIN,  LOSE,  DRAW,};
 	enum GAMESTATE {TITLE_STATE,RULE_STATE,PLAY_STATE,RESULT_STATE};
 	int FlowImg[15] = { 0 };

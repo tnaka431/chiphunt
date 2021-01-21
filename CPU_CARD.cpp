@@ -64,7 +64,6 @@ void CPU_CARD::cpu_carddraw2(NUMBER* num,CPU_DICE*dice) {
 	if (dice->DiceSum >= Cpu_CardTotal) {
 		for (int i = 0; i < 13; i++) {
 			if (DipCard > i) { drawImage(Card[i], CpuCardPx - 50.0f * i, CpuCardPy); }
-
 		}
 	}
 	else {

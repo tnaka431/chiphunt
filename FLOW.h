@@ -9,11 +9,11 @@ class CPU_CHIP;
 class CPU_DICE;
 class STATE;
 class CHIP;
-class FEED;
+class FADE;
 class FLOW {
 public:
 	void init(CONTAINER* c);
-	void update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice, CPU_CARD* cpu_card, CPU_CHIP* cpu_chip, CPU_DICE* cpu_dice,STATE*state,FEED*feed);
+	void update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice, CPU_CARD* cpu_card, CPU_CHIP* cpu_chip, CPU_DICE* cpu_dice,STATE*state,FADE*fade);
 	enum FLOWSTATE { GAMESTART, GIVECHIP, ROUND, PAYCHIP, SHAKEDICE, PULLCARD, ADDCARD, BURST, ADDCHIP, MUCHCHIP, DISGAME, FIGHT, WIN, LOSE, DRAW, };
 	int ResultBgm = 0;
 private:

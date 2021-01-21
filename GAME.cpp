@@ -22,7 +22,7 @@
 #include"FLOW.h"
 #include"STATE.h"
 
-#include"FEED.h"
+#include"FADE.h"
 
 
 GAME::GAME(){
@@ -40,7 +40,7 @@ GAME::GAME(){
 	result = new RESULT;
 	flow = new FLOW;
 	state = new STATE;
-	feed = new FEED;
+	fade = new FADE;
 	title->titleinit(c);
 	rule->ruleinit(c);
 	play->playinit(c);
@@ -55,7 +55,7 @@ GAME::GAME(){
 	flow->init(c);
 	state->init(c);
 
-	feed->init(c);
+	fade->init(c);
 
 }
 GAME::~GAME(){
@@ -74,7 +74,7 @@ GAME::~GAME(){
 	delete flow;
 	delete state;
 
-	delete feed;
+	delete fade;
  }
 
 
@@ -87,7 +87,7 @@ void GAME::Proc() {
 		clearTarget();
 	
 		//clearTarget(COLOR(0.0f, 0.255f, 0.0f));
-		state->update(c, title, rule, play, result, number, player_card, player_chip, player_dice, cpu_card, cpu_chip, cpu_dice, flow, state,game,feed);
+		state->update(c, title, rule, play, result, number, player_card, player_chip, player_dice, cpu_card, cpu_chip, cpu_dice, flow, state,game,fade);
 		present();
 	}
 

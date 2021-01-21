@@ -1,12 +1,12 @@
 #pragma once
 class CONTAINER;
-class FEED {
+class FADE {
 public:
 	void init(CONTAINER*c);
-	void feedin();
-	void feedout();
+	void fadein();
+	void fadeout();
 	float Alpha = 0;
-	int FeedCnt = 0;
+	int FadeCnt = 0;
 private:
-	int FeedImg = 0;
+	int FadeImg = 0;
 };

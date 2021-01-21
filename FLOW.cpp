@@ -10,7 +10,7 @@
 #include"CPU_CARD.h"
 #include"FLOW.h"
 #include "STATE.h"
-#include"FEED.h"
+#include"FADE.h"
 
 void FLOW::init(CONTAINER* c) {
 	for (int i = 0; i < 15; i++) {
@@ -45,7 +45,7 @@ void FLOW::init(CONTAINER* c) {
 	LoseSe = c->losese;
 	DrawSe = c->drawse;
 }
-void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice, CPU_CARD* cpu_card, CPU_CHIP* cpu_chip, CPU_DICE* cpu_dice,STATE*state,FEED*feed) {
+void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice, CPU_CARD* cpu_card, CPU_CHIP* cpu_chip, CPU_DICE* cpu_dice,STATE*state,FADE*fade) {
 	player_chip->player_chipdraw(number);
 	cpu_chip->cpu_chipdraw(number);
 	player_dice->player_dicedraw(number);

@@ -207,6 +207,6 @@ public:
 	int winse = 0;
 	int losese = 0;
 	int drawse = 0;
-	//FEED
+	//FADE
 	int backscreen = 0;
 };
