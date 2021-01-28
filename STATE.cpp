@@ -18,9 +18,10 @@
 #include"RESULT.h"
 #include"STATE.h"
 #include"FLOW.h"
-#include"GAME.h"
-					
+#include"GAME.h"	
 #include"FADE.h"
+#include<stdio.h>
+
 
 void STATE::init(CONTAINER* c) {
 	for (int i = 0; i < 15; i++) {
@@ -32,7 +33,7 @@ void STATE::init(CONTAINER* c) {
 	ArrowPx1 = c->arrow1px;
 	ArrowPx2 = c->arrow2px;
 	ArrowPy = c->arrowpy;
-	//‰¼
+	//‰¹
 	TitleBgm = c->titlebgm;
 	GameBgm = c->gamebgm;
 	ResultBgm = c->resultbgm;
@@ -42,8 +43,8 @@ void STATE::init(CONTAINER* c) {
 
 }
 void STATE::update(CONTAINER*c,TITLE*title,RULE*rule,PLAY*play,RESULT*result,NUMBER* number,
-	PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice,
-	CPU_CARD* cpu_card, CPU_CHIP* cpu_chip, CPU_DICE* cpu_dice,FLOW*flow,STATE*state,GAME*game,FADE*fade) {
+	PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice,CPU_CARD* cpu_card,
+	CPU_CHIP* cpu_chip, CPU_DICE* cpu_dice,FLOW*flow,STATE*state,GAME*game,FADE*fade) {
 	switch (State) {
 		//ƒ^ƒCƒgƒ‹‰æ–Ê
 		case TITLE_STATE:

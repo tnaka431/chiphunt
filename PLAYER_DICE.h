@@ -19,4 +19,5 @@ private:
 	float DiceNumberPx = 0;
 	float DiceNumberPy = 0;
 	int DiceSe1 = 0;
+	int S_Dice = 0;
 };

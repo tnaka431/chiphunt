@@ -13,6 +13,7 @@ void CPU_DICE::cpu_diceinit(CONTAINER* c) {
 	DicePy = c->cpudice_py;
 	DiceNumberPx = c->cpudicenumber_px;
 	DiceNumberPy = c->cpudicenumber_py;
+	S_Dice = c->dice;
 }
 void CPU_DICE::cpu_diceupdate() {
 	if (CpuCnt == 1) {

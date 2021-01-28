@@ -13,7 +13,8 @@ class FADE;
 class FLOW {
 public:
 	void init(CONTAINER* c);
-	void update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice, CPU_CARD* cpu_card, CPU_CHIP* cpu_chip, CPU_DICE* cpu_dice,STATE*state,FADE*fade);
+	void update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice,
+		CPU_CARD* cpu_card, CPU_CHIP* cpu_chip, CPU_DICE* cpu_dice,STATE*state,FADE*fade);
 	enum FLOWSTATE { GAMESTART, GIVECHIP, ROUND, PAYCHIP, SHAKEDICE, PULLCARD, ADDCARD, BURST, ADDCHIP, MUCHCHIP, DISGAME, FIGHT, WIN, LOSE, DRAW, };
 	int ResultBgm = 0;
 private:
@@ -40,11 +41,6 @@ private:
 	int Difference = 0;
 	int CpuAddChip = 0;
 	int CpuAddCnt = 0;
-	//‰¼
-	int Motichip = 0;
-	int Bachip = 0;
-	int Cardsu = 0;
-	int Dicesu = 0;
 	//‰¹
 	int Enter = 0;
 	int ChipSe1 = 0;

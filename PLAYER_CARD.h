@@ -9,6 +9,7 @@ public:
 	void player_carddraw(NUMBER*NUM,PLAYER_DICE*dice);
 	void player_cardnew();
 	int Player_CardTotal = 0;
+
 private:
 	int AllCardImg = 0;
 	int CardImg[52] = { 0 };
@@ -27,4 +28,5 @@ private:
 	int BarstImg[52] = { 0 };
 	int BarstNumber = 0;
 	int BarstCard[13] = { 0 };
+	int S_Card = 0;
 };

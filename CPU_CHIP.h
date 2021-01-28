@@ -7,14 +7,22 @@ public:
 	void cpu_chipdraw(NUMBER*num);
 	int HaveChip = 0;
 	int GiveChip = 0;
+	int score = 0;
 private:
-	int ChipImg = 0;
-	float Cpu_ChipPx = 0;
-	float Cpu_ChipPy = 0;
-	float Cpu_HChipPx = 0;
-	float Cpu_HChipPy = 0;
-	float Cpu_FChipPx = 0;
-	float Cpu_FChipPy = 0;
+	int RedChipImg = 0;
+	int BlackChipImg = 0;
+	float ChipImgPx = 0;
+	float ChipImgPy = 0;
+	float HaveChipPx = 0;
+	float HaveChipPy = 0;
+	float GiveChipPx = 0;
+	float GiveChipPy = 0;
+	int R_HaveChip = 0;
+	int B_HaveChip = 0;
+	int R_GiveChip = 0;
+	int B_GiveChip = 0;
+	int S_HaveChip = 0;
+	int S_GiveChip = 0;
 };
 /*
 class CPU_CHIP :public CHIP {

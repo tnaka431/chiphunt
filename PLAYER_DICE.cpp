@@ -14,6 +14,7 @@ void PLAYER_DICE::player_diceinit(CONTAINER* c) {
 	DiceNumberPx = c->playerdicenumber_px;
 	DiceNumberPy = c->playerdicenumber_py;
 	DiceSe1 = c->dicese1;
+	S_Dice = c->dice;
 }
 void PLAYER_DICE::player_diceupdate() {
 		//playSound(DiceSe1);
@@ -50,7 +51,7 @@ void PLAYER_DICE::player_dicedraw(NUMBER*num) {
 	DiceSum = Deme[0] + Deme[1] + Deme[2] + Deme[3] + Deme[4] + 5;
 	num->Value = DiceSum;
 	num->s_numberdraw();
-	
+	drawImage(S_Dice, 1500.0f, 800.0f);
 }
 void PLAYER_DICE::player_dicenew() {
 	for (int i = 0; i < 6; i++) {

@@ -39,25 +39,4 @@ private:
 	GAME* game;
 	CHIP* chip = 0;
 	FADE* fade;
-	/*enum FLOWSTATE {GAMESTART, GIVECHIP, ROUND ,PAYCHIP,  SHAKEDICE ,PULLCARD,  ADDCARD, BURST,  ADDCHIP,  MUCHCHIP, DISGAME, FIGHT,  WIN,  LOSE,  DRAW,};
-	enum GAMESTATE {TITLE_STATE,RULE_STATE,PLAY_STATE,RESULT_STATE};
-	int FlowImg[15] = { 0 };
-	float FlowPx = 0;
-	float FlowPy = 0;
-	int ArrowImg = 0;
-	float ArrowPx1 = 0;
-	float ArrowPx2= 0;
-	float ArrowPy = 0;
-	int State = 0;
-	int Flow = 0;
-	int RoundCnt = 0;
-	int Cnt = 0;
-	int DisCpuCnt = 0;
-	int DisPlayerCnt = 0;
-	int BurstCnt = 0;
-	int AddChipCnt = 0;
-	int HaveCnt = 0;
-	int Difference = 0;
-	int CpuAddChip = 0;
-	int CpuAddCnt = 0;*/
 };

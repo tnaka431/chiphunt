@@ -4,7 +4,7 @@
 #include "graphic.h"
 
 void CHIP::init(CONTAINER* c) {
-	ChipImg = c->chipimg;
+	ChipImg = c->r_chipimg;
 }
 void CHIP::update() {
 }

@@ -28,11 +28,6 @@ void FLOW::init(CONTAINER* c) {
 	YesPy = c->yespy;
 	NoPx = c->nopx;
 	NoPy = c->nopy;
-	//‰¼
-	Motichip = c->motichip;
-	Bachip = c->bachip;
-	Cardsu = c->cardsu;
-	Dicesu = c->dicesu;
 	//‰¹
 	ResultBgm = c->resultbgm;
 	Enter = c->enter;
@@ -45,21 +40,16 @@ void FLOW::init(CONTAINER* c) {
 	LoseSe = c->losese;
 	DrawSe = c->drawse;
 }
-void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice, CPU_CARD* cpu_card, CPU_CHIP* cpu_chip, CPU_DICE* cpu_dice,STATE*state,FADE*fade) {
+void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice,
+	CPU_CARD* cpu_card,CPU_CHIP* cpu_chip, CPU_DICE* cpu_dice,STATE*state,FADE*fade) {
 	player_chip->player_chipdraw(number);
 	cpu_chip->cpu_chipdraw(number);
 	player_dice->player_dicedraw(number);
 	player_card->player_carddraw(number, player_dice);
 	cpu_card->cpu_carddraw1();
-	//‰¼
-	drawImage(Motichip, 0.0f, 210.0f);
-	drawImage(Motichip, 0.0f, 800.0f);
-	drawImage(Bachip, 0.0f, 400.0f);
-	drawImage(Bachip, 0.0f, 600.0f);
-	drawImage(Cardsu, 700.0f, 210.0f);
-	drawImage(Cardsu, 700.0f, 800.0f);
-	drawImage(Dicesu, 1500.0f, 210.0f);
-	drawImage(Dicesu, 1500.0f, 800.0f);
+	drawImage(cpu_card->S_Card, 700.0f, 210.0f);
+	drawImage(cpu_dice->S_Dice, 1500.0f, 210.0f);
+
 
 	switch (Flow) {
 

@@ -17,6 +17,7 @@ void PLAYER_CARD::player_cardinit(CONTAINER* c) {
 	PlayerCard_Py = c->playercard_py;
 	PlayerCardNumber_Px = c->playercardnumber_px;
 	PlayerCardNumber_Py = c->playercardnumber_py;
+	S_Card = c->card;
 
 	AllBarstImg = c->allburstcardimg;
 	for (int i = 0; i < 4; i++) {
@@ -67,6 +68,8 @@ void PLAYER_CARD::player_carddraw(NUMBER*num,PLAYER_DICE*dice) {
 	num->NumberPy = PlayerCardNumber_Py;
 	num->Value = Player_CardTotal;
 	num->s_numberdraw();
+	drawImage(S_Card, 700.0f, 800.0f);
+
 }
 void PLAYER_CARD::player_cardnew() {
 	for (int i = 0; i < 13; i++) {
@@ -83,4 +86,6 @@ void PLAYER_CARD::player_cardnew() {
 	for (int i = 0; i < 13; i++) {
 		BarstCard[i] = 0;
 	}
+	drawImage(S_Card, 700.0f, 800.0f);
+
 }

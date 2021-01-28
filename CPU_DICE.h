@@ -8,6 +8,7 @@ public:
 	void cpu_dicedraw(NUMBER*c);
 	void cpu_dicenew();
 	int DiceSum = 0;
+	int S_Dice = 0;
 private:
 	int DiceImg[6] = { 0 };
 	float DicePx = 0;

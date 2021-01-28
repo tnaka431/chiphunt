@@ -15,7 +15,8 @@ public:
 		ruleimg1 = loadImage("Rule explanation screen 1.png");
 		ruleimg2 = loadImage("Rule explanation screen 2.png");
 		playimg = loadImage("Game screen.png");
-		chipimg = loadImage("Red chips.png");
+		r_chipimg = loadImage("Red chip.png");
+		b_chipimg = loadImage("Black chip.png");
 		s_numberimg[0] = { loadImage("Number_0_short.png") };
 		s_numberimg[1] = { loadImage("Number_1_short.png") };
 		s_numberimg[2] = { loadImage("Number_2_short.png") };
@@ -70,10 +71,10 @@ public:
 		arrowimg = loadImage("矢印1.png");
 		yesimg = loadImage("「はい」.png");
 		noimg = loadImage("「いいえ」.png");
-		motichip = loadImage("持ちチップの数.png");
-		bachip = loadImage("場のチップ数.png");
-		cardsu = loadImage("カードの合計値.png");
-		dicesu = loadImage("出目の合計数.png");
+		havechip = loadImage("持ちチップの数.png");
+		givechip = loadImage("場のチップ数.png");
+		card = loadImage("カードの合計値.png");
+		dice = loadImage("出目の合計数.png");
 		backscreen = loadImage("black.png");
 		//音
 		titlebgm = loadSound("タイトルBGM.wav");
@@ -91,10 +92,9 @@ public:
 		winse = loadSound("勝ち.wav");
 		losese = loadSound("負け.wav");
 		drawse = loadSound("ドローSE.wav");
-
 	};
 	struct container {
-		int img;
+		const int img;
 		float px;
 		float py;
 		
@@ -118,10 +118,10 @@ public:
 	//プレイ
 	int playimg = 0;
 	int playbgm = 0;
-	int motichip = 0;
-	int bachip = 0;
-	int cardsu = 0;
-	int dicesu = 0;
+	int havechip = 0;
+	int givechip = 0;
+	int card = 0;
+	int dice = 0;
 	//リザルト
 	int resultimg = 0;
 	int kekkaimg = 0;
@@ -138,13 +138,14 @@ public:
 	const int kurai = 10;
 	const int vol = 0;
 	//playerチップ
-	int chipimg = 0;
-	const float playerchip_px = 0.0f;
-	const float playerchip_py = 870.0f;
-	const float playerhavechip_px = 300.0f;
-	const float playerhavechip_py = 810.0f;
-	const float playerfieldchip_px = 260.0f;
-	const float playerfieldchip_py = 610.0f;
+	int r_chipimg = 0;
+	int b_chipimg = 0;
+	const float p_chipimg_px = 50.0f;
+	const float p_chipimg_py = 890.0f;
+	const float p_havechip_px = 300.0f;
+	const float p_havechip_py = 830.0f;
+	const float p_givechip_px = 270.0f;
+	const float p_givechip_py = 540.0f;
 	//playerダイス
 	int diceimg[6] = { 0 };
 	const float playerdice_px = 1550.0f;
@@ -159,12 +160,12 @@ public:
 	const float playercardnumber_px = 1000.0f;
 	const float playercardnumber_py = 810.0f;
 	//cpuチップ
-	const float cpuchip_px = 0.0f;
-	const float cpuchip_py = 0.0f;
-	const float cpuhavechip_px = 300.0f;
-	const float cpuhavechip_py = 220.0f;
-	const float cpufieldchip_px = 260.0f;
-	const float cpufieldchip_py =410.0f;
+	const float c_chipimg_px = 50.0f;
+	const float c_chipimg_py = 20.0f;
+	const float c_havechip_px = 300.0f;
+	const float c_havechip_py = 220.0f;
+	const float c_givechip_px = 260.0f;
+	const float c_givechip_py =485.0f;
 	//cpuダイス
 	const float cpudice_px = 1600.0f;
 	const float cpudice_py = 0.0f;

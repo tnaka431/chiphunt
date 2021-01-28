@@ -11,6 +11,7 @@ public:
 	void cpu_cardnew();
 	int Cpu_CardTotal = 0;
 	int BurstCnt = 0;
+	int S_Card = 0;
 private:
 	int CpuCardImg = 0;
 	float CpuCardPx = 0;
