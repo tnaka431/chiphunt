@@ -47,8 +47,8 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 	player_dice->player_dicedraw(number);
 	player_card->player_carddraw(number, player_dice);
 	cpu_card->cpu_carddraw1();
-	drawImage(cpu_card->S_Card, 700.0f, 210.0f);
-	drawImage(cpu_dice->S_Dice, 1500.0f, 210.0f);
+	drawImage(cpu_card->S_Card, S_CardPx, S_CardPy);
+	drawImage(cpu_dice->S_Dice, S_DicePx, S_DicePy);
 
 
 	switch (Flow) {
@@ -105,16 +105,16 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		CpuAddChip = 0;
 		//仮
 		number->Value =state->RoundCnt;
-		number->NumberPx = 700.0f;
-		number->NumberPy = 460.0f;
+		number->NumberPx = CountNumberPx;
+		number->NumberPy = CountNumberPy;
 		number->m_numberdraw();
 		//画像
-		drawImage(FlowImg[2], FlowPx + 200.0f, FlowPy);
+		drawImage(FlowImg[2],FlowImgPx2, FlowPy);
 		if (isTrigger(KEY_Z)) { Flow = PAYCHIP; }
 		break;
 		//チップを支払う
 	case PAYCHIP:
-		drawImage(FlowImg[3], FlowPx-100.0f, FlowPy);
+		drawImage(FlowImg[3], FlowImgPx3, FlowPy);
 		if (Cnt == 0) {
 			while (Cnt < 3) {
 				player_chip->HaveChip -= 1;
@@ -275,10 +275,10 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 			}
 		}
 		number->Value = AddChipCnt;
-		number->NumberPx = 800.0f;
-		number->NumberPy = 550.0f;
-		drawImage(ArrowImg, ArrowPx2 - 30.0f, ArrowPy - 60.0f);//右
-		drawImage(ArrowImg, ArrowPx1, ArrowPy - 45.0f, 3.14f);//左
+		number->NumberPx = addNumberPx;
+		number->NumberPy = addNumberPy;
+		drawImage(ArrowImg, ArrowRightPx, ArrowRightPy);//右
+		drawImage(ArrowImg, ArrowLeftPx, ArrowLeftPy, ArrowRad);//左
 		number->b_numberdraw();
 		if (isTrigger(KEY_Z)) {
 			//相手の上乗せ----------------------------------------
@@ -346,7 +346,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		break;
 		//勝負
 	case FIGHT:
-		drawImage(FlowImg[11], FlowPx - 70.0f, FlowPy - 40.0f);
+		drawImage(FlowImg[11], FlowImgPx11, FlowImgPy11);
 		//相手の降り
 		if (cpu_dice->DiceSum < 10) { DisCpuCnt = 1; }
 		//相手の上乗せ
@@ -422,7 +422,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		player_card->player_carddraw(number, player_dice);
 		cpu_dice->cpu_dicedraw(number);
 		cpu_card->cpu_carddraw2(number, cpu_dice);
-		drawImage(FlowImg[12], FlowPx, FlowPy - 100.0f);
+		drawImage(FlowImg[12], FlowPx, FlowImgPy12);
 		if (cpu_chip->HaveChip < 3) {
 			if (isTrigger(KEY_Z)) {
 				state->State = state->RESULT_STATE;
@@ -495,7 +495,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		player_card->player_carddraw(number, player_dice);
 		cpu_dice->cpu_dicedraw(number);
 		cpu_card->cpu_carddraw2(number, cpu_dice);
-		drawImage(FlowImg[13], FlowPx + 20.0f, FlowPy - 40.0f);
+		drawImage(FlowImg[13], FlowImgPx13, FlowImgPy13);
 		if (player_chip->HaveChip < 3) {
 			if (isTrigger(KEY_Z)) {
 				state->State = state->RESULT_STATE;
@@ -539,7 +539,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		cpu_dice->cpu_dicedraw(number);
 		cpu_card->cpu_carddraw2(number, cpu_dice);
 
-		drawImage(FlowImg[14], FlowPx, FlowPy - 25.0f);
+		drawImage(FlowImg[14], FlowPx, FlowImgPy14);
 		if (player_chip->HaveChip < 3) {
 			if (isTrigger(KEY_Z)) {
 				state->State = state->RESULT_STATE;

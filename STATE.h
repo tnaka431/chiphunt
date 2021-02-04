@@ -37,8 +37,18 @@ private:
 	float ArrowPx2 = 0;
 	float ArrowPy = 0;
 	int Cnt = 0;
-	//‰¼
 	int Enter = 0;
 	int winse = 0;
 	int losese = 0;
+	const float ArrowRightPx = 1750.0f;
+	const float ArrowRightPy = 955.0f;
+	const float ArrowLeftPx = 100.0f;
+	const float ArrowLeftPy = 955.0f;
+	const float ArrowRad = 3.14f;
+	const float FlowPx12 = 600.0f;
+	const float FlowPy12 = 580.0f;
+	const float FlowPx13 = 620.0f;
+	const float FlowPy13 = 650.0f;
+	const float FlowPx14 = 600.0f;
+	const float FlowPy14 = 650.0f;
 };

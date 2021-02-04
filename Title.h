@@ -10,4 +10,6 @@ private:
 	int StartImg=0;
 	float px=0;
 	float py=0;
+	const float StartPx = 760.0f;
+	const float StartPy = 700.0f;
 };

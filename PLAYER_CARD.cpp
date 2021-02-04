@@ -55,20 +55,20 @@ void PLAYER_CARD::player_cardupdate() {
 void PLAYER_CARD::player_carddraw(NUMBER*num,PLAYER_DICE*dice) {
 	if (dice->DiceSum >= Player_CardTotal) {
 		for (int i = 0; i < 13; i++) {
-			if (DipCard > i) { drawImage(Card[i], PlayerCard_Px + 50.0f * i, PlayerCard_Py); }
+			if (DipCard > i) { drawImage(Card[i], PlayerCard_Px + Interval * i, PlayerCard_Py); }
 
 		}
 	}
 	else {
 		for (int i = 0; i < 13; i++) {
-			if (DipCard > i) { drawImage(BarstCard[i], PlayerCard_Px + 50.0f * i, PlayerCard_Py); }
+			if (DipCard > i) { drawImage(BarstCard[i], PlayerCard_Px + Interval * i, PlayerCard_Py); }
 		}
 	}
 	num->NumberPx = PlayerCardNumber_Px;
 	num->NumberPy = PlayerCardNumber_Py;
 	num->Value = Player_CardTotal;
 	num->s_numberdraw();
-	drawImage(S_Card, 700.0f, 800.0f);
+	drawImage(S_Card, S_CardPx, S_CardPy);
 
 }
 void PLAYER_CARD::player_cardnew() {
@@ -86,6 +86,5 @@ void PLAYER_CARD::player_cardnew() {
 	for (int i = 0; i < 13; i++) {
 		BarstCard[i] = 0;
 	}
-	drawImage(S_Card, 700.0f, 800.0f);
 
 }

@@ -16,7 +16,7 @@ void RESULT::resultinit(CONTAINER* c) {
 
 void RESULT::resultdraw() {
 	drawImage(ResultImg, Px, Py);
-	drawImage(KekkaImg, 390.0f,250.0f);
+	drawImage(KekkaImg, KekkaPx,KekkaPy);
 }
 
 void RESULT::playerscore(NUMBER* num) {

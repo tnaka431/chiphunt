@@ -54,9 +54,7 @@ GAME::GAME(){
 	result->resultinit(c);
 	flow->init(c);
 	state->init(c);
-
 	fade->init(c);
-
 }
 GAME::~GAME(){
 	delete c;
@@ -73,7 +71,6 @@ GAME::~GAME(){
 	delete result ;
 	delete flow;
 	delete state;
-
 	delete fade;
  }
 

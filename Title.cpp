@@ -11,5 +11,5 @@ void TITLE::titleinit(CONTAINER* c) {
 }
 void TITLE::titledraw(CONTAINER* c) {
 	drawImage(TitleImg, px, py);
-	drawImage(StartImg, px+760.0f, py + 700.0f);
+	drawImage(StartImg, StartPx, StartPy);
 }

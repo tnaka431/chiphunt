@@ -57,19 +57,19 @@ void CPU_CARD::cpu_cardupdate(CPU_DICE*dice) {
 }
 void CPU_CARD::cpu_carddraw1() {
 	for (int i = 0; i < 13; i++) {
-		if (DipCard > i) { drawImage(CpuCardImg, CpuCardPx - 50.0f * i, CpuCardPy); }
+		if (DipCard > i) { drawImage(CpuCardImg, CpuCardPx -Interval * i, CpuCardPy); }
 
 	}
 }
 void CPU_CARD::cpu_carddraw2(NUMBER* num,CPU_DICE*dice) {
 	if (dice->DiceSum >= Cpu_CardTotal) {
 		for (int i = 0; i < 13; i++) {
-			if (DipCard > i) { drawImage(Card[i], CpuCardPx - 50.0f * i, CpuCardPy); }
+			if (DipCard > i) { drawImage(Card[i], CpuCardPx - Interval * i, CpuCardPy); }
 		}
 	}
 	else {
 		for (int i = 0; i < 13; i++) {
-			if (DipCard > i) { drawImage(BurstCard[i], CpuCardPx - 50.0f * i, CpuCardPy); }
+			if (DipCard > i) { drawImage(BurstCard[i], CpuCardPx - Interval * i, CpuCardPy); }
 		}
 	}
 	num->NumberPx = CpuCardNumber_Px;

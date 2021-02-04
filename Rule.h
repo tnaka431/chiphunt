@@ -11,5 +11,7 @@ private:
 	int RuleImg2 = 0;
 	float px = 0;
 	float py = 0;
+	const float StartPx = 760.0f;
+	const float StartPy = 1000.0f;
 };
 

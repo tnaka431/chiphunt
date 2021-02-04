@@ -12,7 +12,7 @@ void NUMBER::s_numberdraw() {
 	Kurai = 10;
 	for (int i = 0; i < 2; i++) {
 		Vol = Value / Kurai;
-		drawImage(S_NumberImg[Vol], NumberPx + 20.0f * i, NumberPy);
+		drawImage(S_NumberImg[Vol], NumberPx + S_NumberInterval * i, NumberPy);
 		Value %= Kurai;
 		Kurai /= 10;
 	}
@@ -21,7 +21,7 @@ void NUMBER::b_numberdraw() {
 	Kurai = 10;
 	for (int i = 0; i < 2; i++) {
 		Vol = Value / Kurai;
-		drawImage(B_NumberImg[Vol], NumberPx + 80.0f * i, NumberPy);
+		drawImage(B_NumberImg[Vol], NumberPx + B_NumberInterval * i, NumberPy);
 		Value %= Kurai;
 		Kurai /= 10;
 	}

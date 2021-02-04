@@ -12,6 +12,8 @@ public:
 private:
 	int ResultImg = 0;
 	int KekkaImg = 0;
+	const float KekkaPx = 390.0f;
+	const float KekkaPy = 250.0f;
 	float Px=0;
 	float Py=0;
 	float PlayerScorePx = 0;

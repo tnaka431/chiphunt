@@ -11,9 +11,9 @@ void RULE::ruleinit(CONTAINER* c) {
 }
 void RULE::ruledraw1(CONTAINER* c) {
 	drawImage(RuleImg1, px, py);
-	drawImage(c->startimg, px+760.0f, py + 1000.0f);
+	drawImage(c->startimg, StartPx,StartPy);
 }
 void RULE::ruledraw2(CONTAINER* c) {
 	drawImage(RuleImg2, px, py);
-	drawImage(c->startimg, px + 760.0f, py +1000.0f);
+	drawImage(c->startimg, StartPx,StartPy);
 }

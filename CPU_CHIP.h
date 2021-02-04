@@ -11,8 +11,10 @@ public:
 private:
 	int RedChipImg = 0;
 	int BlackChipImg = 0;
-	float ChipImgPx = 0;
-	float ChipImgPy = 0;
+	float RedChipPx = 0;
+	float RedChipPy = 0;
+	float BlackChipPx = 0;
+	float BlackChipPy = 0;
 	float HaveChipPx = 0;
 	float HaveChipPy = 0;
 	float GiveChipPx = 0;
@@ -23,6 +25,10 @@ private:
 	int B_GiveChip = 0;
 	int S_HaveChip = 0;
 	int S_GiveChip = 0;
+	const float StringChipPx = 0.0f;
+	const float StringHChipPy = 220.0f;
+	const float StringGChipPy = 470.0f;
+	const float GiveChipImgpy = 280.0f;
 };
 /*
 class CPU_CHIP :public CHIP {

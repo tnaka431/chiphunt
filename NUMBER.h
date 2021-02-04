@@ -15,4 +15,6 @@ private:
 	int B_NumberImg[10] = { 0 };
 	int M_NumberImg[5] = { 0 };
 	int Vol=0;
+	const float S_NumberInterval = 20.0f;
+	const float B_NumberInterval = 80.0f;
 };

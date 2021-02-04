@@ -11,8 +11,6 @@ void PLAYER_DICE::player_diceinit(CONTAINER* c) {
 	}
 	DicePx = c->playerdice_px;
 	DicePy = c->playerdice_py;
-	DiceNumberPx = c->playerdicenumber_px;
-	DiceNumberPy = c->playerdicenumber_py;
 	DiceSe1 = c->dicese1;
 	S_Dice = c->dice;
 }
@@ -39,14 +37,14 @@ void PLAYER_DICE::player_diceupdate() {
 }
 void PLAYER_DICE::player_dicedraw(NUMBER*num) {
 	for (int i = 0; i < 3; i++) {
-		drawImage(DiceImg[Dice[i]], DicePx + 100.0f * i, DicePy);
+		drawImage(DiceImg[Dice[i]], DicePx + Interval * i, DicePy);
 
 	}
 	for (int i = 3; i < 5; i++) {
-		drawImage(DiceImg[Dice[i]], (DicePx + 50.0f) + 100.0f * (i - 3), (DicePy + 100.0f));
+		drawImage(DiceImg[Dice[i]], (DicePx + halfInterval) + Interval * (i - 3), (DicePy + Interval));
 	}
 	//ƒ_ƒCƒX‚Ì”
-	num->NumberPx = 1770.0f;
+	num->NumberPx = DiceNumberPx;
 	num->NumberPy = DiceNumberPy;
 	DiceSum = Deme[0] + Deme[1] + Deme[2] + Deme[3] + Deme[4] + 5;
 	num->Value = DiceSum;

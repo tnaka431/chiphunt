@@ -31,4 +31,5 @@ private:
 	int BurstImg[52] = { 0 };
 	int BurstNumber = 0;
 	int BurstCard[13] = { 0 };
+	const float Interval = 50.0f;
 };

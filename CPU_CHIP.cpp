@@ -5,8 +5,10 @@
 void CPU_CHIP::cpu_chipinit(CONTAINER* c) {
 	RedChipImg = c->r_chipimg;
 	BlackChipImg = c->b_chipimg;
-	ChipImgPx = c->c_chipimg_px;
-	ChipImgPy = c->c_chipimg_py;
+	RedChipPx = c->c_rchipimg_px;
+	RedChipPy = c->c_rchipimg_py;
+	BlackChipPx = c->c_bchipimg_px;
+	BlackChipPy = c->c_bchipimg_py;
 	HaveChipPx = c->c_havechip_px;
 	HaveChipPy = c->c_havechip_py;
 	GiveChipPx = c->c_givechip_px;
@@ -16,36 +18,36 @@ void CPU_CHIP::cpu_chipinit(CONTAINER* c) {
 	
 }
 void CPU_CHIP::cpu_chipdraw(NUMBER*num) {
-	drawImage(S_HaveChip, 0.0f, 220.0f);
-	drawImage(S_GiveChip, 0.0f, 470.0f);
+	drawImage(S_HaveChip,StringChipPx,StringHChipPy);
+	drawImage(S_GiveChip,StringChipPx, StringGChipPy);
 	//持ちチップの数
-	num->NumberPx = 300.0f;
-	num->NumberPy = 230.0f;
+	num->NumberPx = HaveChipPx;
+	num->NumberPy = HaveChipPy;
 	num->Value = HaveChip;
 	num->s_numberdraw();
 	B_HaveChip = HaveChip / 5;
 	R_HaveChip = HaveChip % 5;
 	for (int i = 0; i < B_HaveChip; i++) {
-		drawImage(BlackChipImg, ChipImgPx - 5 * i, ChipImgPy - 5 * i);
+		drawImage(BlackChipImg, BlackChipPx -( 5 * i), BlackChipPy -( 5 * i));
 	}
 	if (R_HaveChip != 0) {
 		for (int i = 0; i < R_HaveChip; i++) {
-			drawImage(RedChipImg, ChipImgPx + 200 - 5 * i, ChipImgPy - 5 * i);
+			drawImage(RedChipImg, RedChipPx -( 5 * i), RedChipPy - (5 * i));
 		}
 	}
 	//場のチップの数
 	num->Value = GiveChip;
-	num->NumberPx = 270.0f;
-	num->NumberPy = 485.0f;
+	num->NumberPx = GiveChipPx;
+	num->NumberPy = GiveChipPy;
 	num->s_numberdraw();
 	B_GiveChip = GiveChip / 5;
 	R_GiveChip = GiveChip % 5;
 	for (int i = 0; i < B_GiveChip; i++) {
-		drawImage(BlackChipImg, ChipImgPx - 5 * i, ChipImgPy + 260 - 5 * i);
+		drawImage(BlackChipImg, BlackChipPx - (5 * i), GiveChipImgpy-( 5 * i));
 	}
 	if (R_GiveChip != 0) {
 		for (int i = 0; i < R_GiveChip; i++) {
-			drawImage(RedChipImg, ChipImgPx + 200 - 5 * i, ChipImgPy + 260 - 5 * i);
+			drawImage(RedChipImg, RedChipPx - (5 * i), GiveChipImgpy - (5 * i));
 		}
 	}
 }

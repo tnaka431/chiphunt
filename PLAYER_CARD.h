@@ -29,4 +29,7 @@ private:
 	int BarstNumber = 0;
 	int BarstCard[13] = { 0 };
 	int S_Card = 0;
+	const float Interval = 50.0f;
+	const float S_CardPx = 700.0f;
+	const float S_CardPy = 800.0f;
 };
