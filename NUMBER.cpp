@@ -3,27 +3,27 @@
 #include"CONTAINER.h"
 
 void NUMBER::numberinit(CONTAINER* c) {
-	for (int i = 0; i < 10; i++) { S_NumberImg[i] = c->s_numberimg[i]; }
-	for (int j = 0; j < 10; j++) { B_NumberImg[j] = c->b_numberimg[j]; }
-	for (int i = 0; i < 5; i++) { M_NumberImg[i] = c->m_numberimg[i]; }
-	Kurai = c->kurai;
+	for (int i = 0; i < Number; i++) { S_NumberImg[i] = c->s_numberimg[i]; }
+	for (int j = 0; j < Number; j++) { B_NumberImg[j] = c->b_numberimg[j]; }
+	for (int i = 0; i < sNumber; i++) { M_NumberImg[i] = c->m_numberimg[i]; }
+	//Kurai = c->kurai;
 }
 void NUMBER::s_numberdraw() {
-	Kurai = 10;
-	for (int i = 0; i < 2; i++) {
+	Kurai = Zyu;
+	for (int i = 0; i < keta; i++) {
 		Vol = Value / Kurai;
 		drawImage(S_NumberImg[Vol], NumberPx + S_NumberInterval * i, NumberPy);
 		Value %= Kurai;
-		Kurai /= 10;
+		Kurai /= Zyu;
 	}
 }
 void NUMBER::b_numberdraw() {
-	Kurai = 10;
-	for (int i = 0; i < 2; i++) {
+	Kurai = Zyu;
+	for (int i = 0; i < keta; i++) {
 		Vol = Value / Kurai;
 		drawImage(B_NumberImg[Vol], NumberPx + B_NumberInterval * i, NumberPy);
 		Value %= Kurai;
-		Kurai /= 10;
+		Kurai /= Zyu;
 	}
 }
 //’†‚­‚ç‚¢‚ÌˆêŒ…”Žš

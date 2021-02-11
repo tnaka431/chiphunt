@@ -13,7 +13,7 @@
 #include"FADE.h"
 
 void FLOW::init(CONTAINER* c) {
-	for (int i = 0; i < 15; i++) {
+	for (int i = 0; i < FlowNumber; i++) {
 		FlowImg[i] = c->flowimg[i];
 	}
 	YesImg = c->yesimg;
@@ -51,7 +51,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 	drawImage(cpu_dice->S_Dice, S_DicePx, S_DicePy);
 
 
-	switch (Flow) {
+	switch (FlowState) {
 
 		//ゲームスタート
 	case GAMESTART:
@@ -59,7 +59,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		player_chip->HaveChip = 0;
 		cpu_chip->HaveChip = 0;
 		if (isTrigger(KEY_Z)) {
-			Flow = GIVECHIP;
+			FlowState = GIVECHIP;
 			playSound(Enter);
 		}
 		break;
@@ -67,21 +67,21 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		//チップを配る
 	case GIVECHIP:
 		drawImage(FlowImg[1], FlowPx, FlowPy);
-		for (int i = 0; i < 10; i++) {
-			if (i % 10 != 0) {
+		for (int i = 0; i < HaveChipRoop; i++) {
+			if (i % HaveChipRoop != 0) {
 				continue;
 			}
-			if (player_chip->HaveChip < 30) {
-				player_chip->HaveChip += 1;
-				cpu_chip->HaveChip += 1;
+			if (player_chip->HaveChip < MaxHaveChip) {
+				player_chip->HaveChip += one;
+				cpu_chip->HaveChip += one;
 				playSound(ChipSe1);
 			}
 		}
-		if (player_chip->HaveChip == 30 && cpu_chip->HaveChip == 30) {
+		if (player_chip->HaveChip == MaxHaveChip && cpu_chip->HaveChip == MaxHaveChip) {
 			if (isTrigger(KEY_Z)) {
 				//state->RoundCnt++;
 				playSound(Enter);
-				Flow = ROUND;
+				FlowState = ROUND;
 			}
 		}
 		break;
@@ -110,17 +110,17 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		number->m_numberdraw();
 		//画像
 		drawImage(FlowImg[2],FlowImgPx2, FlowPy);
-		if (isTrigger(KEY_Z)) { Flow = PAYCHIP; }
+		if (isTrigger(KEY_Z)) { FlowState = PAYCHIP; }
 		break;
 		//チップを支払う
 	case PAYCHIP:
 		drawImage(FlowImg[3], FlowImgPx3, FlowPy);
 		if (Cnt == 0) {
-			while (Cnt < 3) {
-				player_chip->HaveChip -= 1;
-				player_chip->GiveChip += 1;
-				cpu_chip->HaveChip -= 1;
-				cpu_chip->GiveChip += 1;
+			while (Cnt < MinGiveChip) {
+				player_chip->HaveChip -= one;
+				player_chip->GiveChip += one;
+				cpu_chip->HaveChip -= one;
+				cpu_chip->GiveChip += one;
 				playSound(ChipSe2);
 				Cnt++;
 			}
@@ -130,7 +130,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 			if (isTrigger(KEY_Z)) {
 				Cnt = 0;
 				playSound(Enter);
-				Flow = SHAKEDICE;
+				FlowState = SHAKEDICE;
 			}
 		}
 		break;
@@ -142,7 +142,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		playSound(DiceSe);
 		if (player_dice->DiceCnt == 2) {
 			if (isTrigger(KEY_Z)) {
-				Flow = PULLCARD;
+				FlowState = PULLCARD;
 				playSound(Enter);
 			}
 		}
@@ -163,7 +163,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 				Cnt = 0;
 				playSound(Enter);
 				playSound(CardSe);
-				Flow = ADDCARD;
+				FlowState = ADDCARD;
 
 			}
 		}
@@ -178,7 +178,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 				cpu_card->cpu_cardupdate(cpu_dice);
 				playSound(Enter);
 				Cnt = 0;
-				Flow = ADDCHIP;
+				FlowState = ADDCHIP;
 			}
 		}
 		break;
@@ -188,12 +188,12 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		player_card->player_cardupdate();
 		if (isTrigger(KEY_Z)) {
 			if (player_dice->DiceSum < player_card->Player_CardTotal) {
-				Flow = BURST;
+				FlowState = BURST;
 				playSound(Enter);
 				playSound(BurstSe);
 			}
 			else {
-				Flow = PULLCARD;
+				FlowState = PULLCARD;
 				playSound(Enter);
 			}
 		}
@@ -204,7 +204,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		drawImage(FlowImg[7], FlowPx, FlowPy);
 		BurstCnt = 1;
 		if (isTrigger(KEY_Z)) {
-			Flow = FIGHT;
+			FlowState = FIGHT;
 			playSound(Enter);
 		}
 		break;
@@ -224,7 +224,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 			if (isTrigger(KEY_Z)) {
 				playSound(Enter);
 				Cnt = 0;
-				Flow = MUCHCHIP;
+				FlowState = MUCHCHIP;
 			}
 		}
 		//いいえ
@@ -238,8 +238,8 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 				//相手の上乗せ--------------------------------
 				if (CpuAddCnt == 0) {
 					if (cpu_card->BurstCnt == 0) {
-						if (getRand() % 15 + 15 < cpu_card->Cpu_CardTotal) {
-							CpuAddChip = getRand() % cpu_chip->HaveChip / 2;
+						if (getRand() % AddRadam + AddRadam < cpu_card->Cpu_CardTotal) {
+							CpuAddChip = getRand() % cpu_chip->HaveChip / DisChip;
 							cpu_chip->GiveChip += CpuAddChip;
 							cpu_chip->HaveChip -= CpuAddChip;
 							CpuAddCnt++;
@@ -249,7 +249,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 				//--------------------------------------------
 				playSound(Enter);
 				Cnt = 0;
-				Flow = DISGAME;
+				FlowState = DISGAME;
 			}
 		}
 		break;
@@ -284,8 +284,8 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 			//相手の上乗せ----------------------------------------
 			if (CpuAddCnt == 0) {
 				if (cpu_card->BurstCnt == 0) {
-					if (getRand() % 15 + 15 < cpu_card->Cpu_CardTotal) {
-						CpuAddChip = getRand() % cpu_chip->HaveChip / 2;
+					if (getRand() % AddRadam + AddRadam < cpu_card->Cpu_CardTotal) {
+						CpuAddChip = getRand() % cpu_chip->HaveChip / DisChip;
 						cpu_chip->GiveChip += CpuAddChip;
 						cpu_chip->HaveChip -= CpuAddChip;
 						CpuAddCnt++;
@@ -293,7 +293,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 				}
 			}
 			//----------------------------------------------------
-			Flow = DISGAME;
+			FlowState = DISGAME;
 			playSound(Enter);
 		}
 		break;
@@ -303,7 +303,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		drawImage(YesImg, YesPx, YesPy);
 		drawImage(NoImg, NoPx, NoPy);
 		//相手の降り
-		if (cpu_dice->DiceSum < 10) { DisCpuCnt = 1; }
+		if (cpu_dice->DiceSum < CpuDisDice) { DisCpuCnt = 1; }
 		//はい
 		if (isTrigger(KEY_LEFT)) {
 			Cnt = 0; 
@@ -315,7 +315,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 				//引き分け画面へ
 				if (isTrigger(KEY_Z)) {
 					Cnt = 0;
-					Flow = DRAW;
+					FlowState = DRAW;
 					playSound(Enter);
 				}
 			}
@@ -324,7 +324,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 				if (isTrigger(KEY_Z)) {
 					DisPlayerCnt = 1;
 					Cnt = 0;
-					Flow = LOSE;
+					FlowState = LOSE;
 					playSound(LoseSe);
 					playSound(Enter);
 				}
@@ -339,7 +339,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 			drawImage(ArrowImg, ArrowPx2, ArrowPy);
 			if (isTrigger(KEY_Z)) {
 				Cnt = 0;
-				Flow = FIGHT;
+				FlowState = FIGHT;
 				playSound(Enter);
 			}
 		}
@@ -348,29 +348,18 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 	case FIGHT:
 		drawImage(FlowImg[11], FlowImgPx11, FlowImgPy11);
 		//相手の降り
-		if (cpu_dice->DiceSum < 10) { DisCpuCnt = 1; }
-		//相手の上乗せ
-		if (CpuAddCnt == 0) {
-			if (cpu_card->BurstCnt == 0) {
-				if (getRand() % 15 + 15 < cpu_card->Cpu_CardTotal) {
-					CpuAddChip = getRand() % cpu_chip->HaveChip / 2;
-					cpu_chip->GiveChip += CpuAddChip;
-					cpu_chip->HaveChip -= CpuAddChip;
-					CpuAddCnt++;
-				}
-			}
-		}
+		if (cpu_dice->DiceSum < CpuDisDice) { DisCpuCnt = 1; }
 		//引き分け画面へ
 		if (player_card->Player_CardTotal == cpu_card->Cpu_CardTotal || BurstCnt == 1 && cpu_card->BurstCnt == 1) {
 			if (isTrigger(KEY_Z)) {
-				Flow = DRAW; 
+				FlowState = DRAW; 
 				playSound(Enter);
 			}
 		}
 		//勝ち画面へ
 		else if (player_card->Player_CardTotal > cpu_card->Cpu_CardTotal && BurstCnt == 0 || cpu_card->BurstCnt == 1 || DisCpuCnt == 1) {
 			if (isTrigger(KEY_Z)) { 
-				Flow = WIN; 
+				FlowState = WIN; 
 				playSound(WinSe);
 				playSound(Enter);
 			}
@@ -378,7 +367,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		//負け画面へ
 		else if (player_card->Player_CardTotal < cpu_card->Cpu_CardTotal && cpu_card->BurstCnt == 0 || BurstCnt == 1) {
 			if (isTrigger(KEY_Z)) {
-				Flow = LOSE; 
+				FlowState = LOSE; 
 				playSound(LoseSe);
 				playSound(Enter);
 			}
@@ -409,9 +398,9 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 				}
 			}
 			else {
-				cpu_chip->GiveChip = cpu_chip->GiveChip - 2;
+				cpu_chip->GiveChip = cpu_chip->GiveChip - DisChip;
 				cpu_chip->HaveChip += cpu_chip->GiveChip;
-				player_chip->GiveChip = player_chip->GiveChip + 2;
+				player_chip->GiveChip = player_chip->GiveChip + DisChip;
 				player_chip->HaveChip += player_chip->GiveChip;
 				Cnt++;
 			}
@@ -423,27 +412,27 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		cpu_dice->cpu_dicedraw(number);
 		cpu_card->cpu_carddraw2(number, cpu_dice);
 		drawImage(FlowImg[12], FlowPx, FlowImgPy12);
-		if (cpu_chip->HaveChip < 3) {
+		if (cpu_chip->HaveChip < MinGiveChip) {
 			if (isTrigger(KEY_Z)) {
-				state->State = state->RESULT_STATE;
+				state->GameState = state->RESULT_STATE;
 				stopSound(state->GameBgm);
 				playLoopSound(state->ResultBgm);
 				state->RoundCnt = 0;
 				playSound(WinSe);
 				playSound(Enter);
-				Flow = GAMESTART;
+				FlowState = GAMESTART;
 			}
 				break;
 		}
 		if (state->RoundCnt == 4) {
 			if (isTrigger(KEY_Z)) { 
-				state->State = state->RESULT_STATE;
+				state->GameState = state->RESULT_STATE;
 				stopSound(state->GameBgm);
 				playLoopSound(state->ResultBgm);
 				state->RoundCnt = 0;
 				playSound(WinSe);
 				playSound(Enter);
-				Flow = GAMESTART;
+				FlowState = GAMESTART;
 			}
 			break;
 		}
@@ -451,7 +440,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 			if (isTrigger(KEY_Z)) {
 				state->RoundCnt++;
 				playSound(Enter);
-				Flow = ROUND;
+				FlowState = ROUND;
 			}
 			break;
 		}
@@ -498,25 +487,25 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		drawImage(FlowImg[13], FlowImgPx13, FlowImgPy13);
 		if (player_chip->HaveChip < 3) {
 			if (isTrigger(KEY_Z)) {
-				state->State = state->RESULT_STATE;
+				state->GameState = state->RESULT_STATE;
 				state->RoundCnt = 0;
 				stopSound(state->GameBgm);
 				playLoopSound(state->ResultBgm);
 				playSound(Enter);
 				playSound(LoseSe);
-				Flow = GAMESTART;
+				FlowState = GAMESTART;
 			}
 			break;
 		}
 		if (state->RoundCnt == 4) {
 			if (isTrigger(KEY_Z)) {
-				state->State = state->RESULT_STATE;
+				state->GameState = state->RESULT_STATE;
 				state->RoundCnt = 0;
 				stopSound(state->GameBgm);
 				playLoopSound(state->ResultBgm);
 				playSound(LoseSe);
 				playSound(Enter);
-				Flow = GAMESTART;
+				FlowState = GAMESTART;
 			}
 			break;
 		}
@@ -524,7 +513,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 			if (isTrigger(KEY_Z)) {
 				state->RoundCnt++;
 				playSound(Enter);
-				Flow = ROUND;
+				FlowState = ROUND;
 			}
 			break;
 		}
@@ -542,25 +531,25 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 		drawImage(FlowImg[14], FlowPx, FlowImgPy14);
 		if (player_chip->HaveChip < 3) {
 			if (isTrigger(KEY_Z)) {
-				state->State = state->RESULT_STATE;
+				state->GameState = state->RESULT_STATE;
 				state->RoundCnt = 0;
 				stopSound(state->GameBgm);
 				playLoopSound(state->ResultBgm);
 				playSound(Enter);
 				playSound(DrawSe);
-				Flow = GAMESTART;
+				FlowState = GAMESTART;
 			}
 			break;
 		}
 		if (state->RoundCnt == 4) {
 			if (isTrigger(KEY_Z)) { 
-				state->State = state->RESULT_STATE;
+				state->GameState = state->RESULT_STATE;
 				state->RoundCnt = 0;
 				stopSound(state->GameBgm);
 				playLoopSound(state->ResultBgm);
 				playSound(DrawSe);
 				playSound(Enter);
-				Flow = GAMESTART;
+				FlowState = GAMESTART;
 			}
 		}
 
@@ -568,7 +557,7 @@ void FLOW::update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_
 			if (isTrigger(KEY_Z)) {
 				state->RoundCnt++;
 				playSound(Enter);
-				Flow = ROUND;
+				FlowState = ROUND;
 			}
 		}
 		break;

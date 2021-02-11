@@ -7,13 +7,13 @@ void FADE::init(CONTAINER* c) {
 }
 void FADE::fadein() {
 	drawImage(FadeImg,x, y,z, COLOR(r, g, b, Alpha));
-	if (Alpha <= 1.0f) {
-		Alpha += 0.07f;
+	if (Alpha <= MaxAlpha) {
+		Alpha += DAlpha;
 	}
 }
 void FADE::fadeout() {
 	drawImage(FadeImg,x, y, z, COLOR(r, g, b, Alpha));
-	if (Alpha >= 0.0f) {
-		Alpha -= 0.07f;
+	if (Alpha >= MinAlpha) {
+		Alpha -= DAlpha;
 	}
 }

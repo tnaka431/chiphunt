@@ -14,24 +14,24 @@ void CPU_CARD::cpu_cardinit(CONTAINER* c) {
 	CpuCardNumber_Py = c->cpucardnumber_py;
 	AllCardImg = c->allcardimg;
 	S_Card = c->card;
-	for (int i = 0; i < 4; i++) {
-		for (int j = 0; j < 13; j++) {
+	for (int i = 0; i < Handle; i++) {
+		for (int j = 0; j < Number; j++) {
 			TureCpuCardImg[j + i * 13] = divideImage(AllCardImg, 19 + 140 * j, 13 + 196 * i, 121, 180);
 		}
 	}
 	AllBurstImg = c->allburstcardimg;
-	for (int i = 0; i < 4; i++) {
-		for (int j = 0; j < 13; j++) {
+	for (int i = 0; i < Handle; i++) {
+		for (int j = 0; j < Number; j++) {
 			BurstImg[j + i * 13] = divideImage(AllBurstImg, 19 + 140 * j, 13 + 196 * i, 121, 180);
 		}
 	}
 }
 void CPU_CARD::cpu_cardupdate(CPU_DICE*dice) {
-	while(dice->DiceSum-7>Cpu_CardTotal){
-			if (CardCnt < 13) {
-				while (Cnt < CardCnt + 1) {
+	while(dice->DiceSum-Cpubrain>Cpu_CardTotal){
+			if (CardCnt < Number) {
+				while (Cnt < CardCnt + OnePuls) {
 					Flag = 0;
-					CardNumber = getRand() % 52;
+					CardNumber = getRand() % allcard;
 					Card[TrumpNumber] = TureCpuCardImg[CardNumber];
 					BurstCard[BurstNumber] = BurstImg[CardNumber];
 					for (int i = 0; i < TrumpNumber; i++) {
@@ -45,7 +45,7 @@ void CPU_CARD::cpu_cardupdate(CPU_DICE*dice) {
 					}
 				}
 				DipCard++;
-				Cpu_CardTotal += (CardNumber % 13) + 1;
+				Cpu_CardTotal += (CardNumber % Number) + OnePuls;
 				TrumpNumber++;
 				BurstNumber++;
 				CardCnt++;
@@ -56,19 +56,19 @@ void CPU_CARD::cpu_cardupdate(CPU_DICE*dice) {
 	}
 }
 void CPU_CARD::cpu_carddraw1() {
-	for (int i = 0; i < 13; i++) {
+	for (int i = 0; i < Number; i++) {
 		if (DipCard > i) { drawImage(CpuCardImg, CpuCardPx -Interval * i, CpuCardPy); }
 
 	}
 }
 void CPU_CARD::cpu_carddraw2(NUMBER* num,CPU_DICE*dice) {
 	if (dice->DiceSum >= Cpu_CardTotal) {
-		for (int i = 0; i < 13; i++) {
+		for (int i = 0; i < Number; i++) {
 			if (DipCard > i) { drawImage(Card[i], CpuCardPx - Interval * i, CpuCardPy); }
 		}
 	}
 	else {
-		for (int i = 0; i < 13; i++) {
+		for (int i = 0; i < Number; i++) {
 			if (DipCard > i) { drawImage(BurstCard[i], CpuCardPx - Interval * i, CpuCardPy); }
 		}
 	}
@@ -78,7 +78,7 @@ void CPU_CARD::cpu_carddraw2(NUMBER* num,CPU_DICE*dice) {
 	num->s_numberdraw();
 }
 void CPU_CARD::cpu_cardnew() {
-	for (int i = 0; i < 13; i++) {
+	for (int i = 0; i < Number; i++) {
 		Card[i] = 0;
 	}
 	CardNumber = 0;
@@ -89,7 +89,7 @@ void CPU_CARD::cpu_cardnew() {
 	Flag = 0;
 	Cnt = 0;
 	BurstNumber = 0;
-	for (int i = 0; i < 13; i++) {
+	for (int i = 0; i < Number; i++) {
 		BurstCard[i] = 0;
 	}
 }

@@ -15,9 +15,13 @@ private:
 	float DicePy = 0;
 	int Dice[6] = { 0 };
 	int Deme[5] = { 0 };
-	int CpuCnt = 0;
 	const float DiceNumberPx = 1770.0f;
 	const float DiceNumberPy = 220.0f;
 	const float Interval = 100.0f;
 	const float halfInterval = 50.0f;
+	const int DiceEye = 6;
+	const int DiceNumber = 5;//ダイスの個数
+	const int DiceUpNumber = 2;//ダイスの上段の数
+	enum Cnt { one, two, three,four };
+	Cnt cnt = two;
 };

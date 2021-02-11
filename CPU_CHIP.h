@@ -29,6 +29,7 @@ private:
 	const float StringHChipPy = 220.0f;
 	const float StringGChipPy = 470.0f;
 	const float GiveChipImgpy = 280.0f;
+	const int Divided = 5;
 };
 /*
 class CPU_CHIP :public CHIP {

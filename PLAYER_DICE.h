@@ -22,4 +22,9 @@ private:
 	const float DiceNumberPy = 810.0f;
 	const float Interval = 100.0f;
 	const float halfInterval = 50.0f;
+	const float S_DicePx = 1500.0f;
+	const float S_DicePy = 800.0f;
+	const int DiceEye = 6;
+	const int DiceNumber = 5;//ダイスの個数
+	const int DiceUpNumber = 3;//ダイスの上段の数
 };

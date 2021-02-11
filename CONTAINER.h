@@ -135,7 +135,6 @@ public:
 	int s_numberimg[10] = { 0 };
 	int m_numberimg[5] = { 0 };
 	int b_numberimg[10] = { 0 };
-	const int kurai = 10;
 	const int vol = 0;
 	//playerƒ`ƒbƒv
 	int r_chipimg = 0;

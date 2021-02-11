@@ -32,4 +32,9 @@ private:
 	int BurstNumber = 0;
 	int BurstCard[13] = { 0 };
 	const float Interval = 50.0f;
+	const int Handle = 4;
+	const int Number = 13;
+	const int Cpubrain = 7;
+	const int allcard = 52;
+	const int OnePuls = 1;
 };

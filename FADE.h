@@ -15,4 +15,7 @@ private:
 	const float r = 0.0f;
 	const float g = 0.0f;
 	const float b = 0.0f;
+	const float DAlpha = 0.07f;
+	const float MaxAlpha = 1.0f;
+	const float MinAlpha = 0.0f;
 };

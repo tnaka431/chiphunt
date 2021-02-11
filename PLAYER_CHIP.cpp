@@ -24,14 +24,14 @@ void PLAYER_CHIP::player_chipdraw(NUMBER*num) {
 	num->NumberPy = HaveChipPy;
 	num->Value = HaveChip;
 	num->s_numberdraw();
-	B_HaveChip = HaveChip / 5;
-	R_HaveChip = HaveChip % 5;
+	B_HaveChip = HaveChip / Divided;
+	R_HaveChip = HaveChip % Divided;
 	for (int i = 0; i < B_HaveChip; i++) {
-		drawImage(BlackChipImg, BlackChipPx - (5 * i), BlackChipPy - (5 * i));
+		drawImage(BlackChipImg, BlackChipPx - (Divided * i), BlackChipPy - (Divided * i));
 	}
 	if (R_HaveChip != 0) {
 		for (int i = 0; i < R_HaveChip; i++) {
-			drawImage(RedChipImg, RedChipPx  - (5 * i), RedChipPy - (5 * i));
+			drawImage(RedChipImg, RedChipPx  - (Divided * i), RedChipPy - (Divided * i));
 		}
 	}
 	//ê‚Ìƒ`ƒbƒv‚Ì”
@@ -39,14 +39,14 @@ void PLAYER_CHIP::player_chipdraw(NUMBER*num) {
 	num->NumberPx = GiveChipPx;
 	num->NumberPy = GiveChipPy;
 	num->s_numberdraw();
-	B_GiveChip = GiveChip / 5;
-	R_GiveChip = GiveChip % 5;
+	B_GiveChip = GiveChip / Divided;
+	R_GiveChip = GiveChip % Divided;
 	for (int i = 0; i < B_GiveChip; i++) {
-		drawImage(BlackChipImg, BlackChipPx - (5 * i), GiveChipImgPy -( 5 * i));
+		drawImage(BlackChipImg, BlackChipPx - (Divided * i), GiveChipImgPy -( Divided * i));
 	}
 	if (R_GiveChip != 0) {
 		for (int i = 0; i < R_GiveChip; i++) {
-			drawImage(RedChipImg, RedChipPx - (5 * i), GiveChipImgPy -( 5 * i));
+			drawImage(RedChipImg, RedChipPx - (Divided * i), GiveChipImgPy -( Divided * i));
 		}
 	}
 }

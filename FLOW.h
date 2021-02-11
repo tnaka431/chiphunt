@@ -16,6 +16,7 @@ public:
 	void update(NUMBER* number, PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice,
 		CPU_CARD* cpu_card, CPU_CHIP* cpu_chip, CPU_DICE* cpu_dice,STATE*state,FADE*fade);
 	enum FLOWSTATE { GAMESTART, GIVECHIP, ROUND, PAYCHIP, SHAKEDICE, PULLCARD, ADDCARD, BURST, ADDCHIP, MUCHCHIP, DISGAME, FIGHT, WIN, LOSE, DRAW, };
+	FLOWSTATE FlowState = GAMESTART;
 	int ResultBgm = 0;
 private:
 	int FlowImg[15] = { 0 };
@@ -31,7 +32,6 @@ private:
 	float YesPy = 0;
 	float NoPx = 0;
 	float NoPy = 0;
-	int Flow = 0;
 	int Cnt = 0;
 	int DisCpuCnt = 0;
 	int DisPlayerCnt = 0;
@@ -62,6 +62,14 @@ private:
 	const float ArrowLeftPx = 750.0f;
 	const float ArrowLeftPy = 610.0f;
 	const float ArrowRad = 3.14f;
+	const int DisChip = 2;
+	const int CpuDisDice = 10;
+	const int AddRadam = 15;
+	const int FlowNumber = 15;
+	const int MinGiveChip = 3;
+	const int MaxHaveChip = 30;
+	const int HaveChipRoop = 10;
+	const int one = 1;
 
 	//‰¹
 	int Enter = 0;

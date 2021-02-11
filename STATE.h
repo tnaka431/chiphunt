@@ -22,8 +22,8 @@ public:
 	void update(CONTAINER* c, TITLE* title, RULE* rule, PLAY* play, RESULT* result,NUMBER* number,
 		PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice, 
 		CPU_CARD* cpu_card,CPU_CHIP* cpu_chip,CPU_DICE* cpu_dice,FLOW*flow,STATE*state,GAME*game,FADE*fade);
-	enum GAMESTATE { TITLE_STATE, RULE_STATE, PLAY_STATE, RESULT_STATE };
-	int State = 0;
+	enum GAMESTATE { TITLE_STATE,RULE_STATE, PLAY_STATE,RESULT_STATE };
+	GAMESTATE GameState = TITLE_STATE;
 	int RoundCnt = 0;
 	int TitleBgm = 0;
 	int GameBgm = 0;
@@ -51,4 +51,6 @@ private:
 	const float FlowPy13 = 650.0f;
 	const float FlowPx14 = 600.0f;
 	const float FlowPy14 = 650.0f;
+	const int FlowNumber = 15;
+	const float MaxAlpha = 1.0f;
 };

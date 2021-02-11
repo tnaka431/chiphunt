@@ -32,4 +32,8 @@ private:
 	const float Interval = 50.0f;
 	const float S_CardPx = 700.0f;
 	const float S_CardPy = 800.0f;
+	const int Handle = 4;
+	const int Number = 13;
+	const int allcard = 52;
+	const int OnePuls = 1;
 };

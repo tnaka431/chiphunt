@@ -24,7 +24,7 @@
 
 
 void STATE::init(CONTAINER* c) {
-	for (int i = 0; i < 15; i++) {
+	for (int i = 0; i < FlowNumber; i++) {
 		FlowImg[i] = c->flowimg[i];
 	}
 	FlowPx = c->flowpx;
@@ -45,14 +45,14 @@ void STATE::init(CONTAINER* c) {
 void STATE::update(CONTAINER* c, TITLE* title, RULE* rule, PLAY* play, RESULT* result, NUMBER* number,
 	PLAYER_CARD* player_card, PLAYER_CHIP* player_chip, PLAYER_DICE* player_dice, CPU_CARD* cpu_card,
 	CPU_CHIP* cpu_chip, CPU_DICE* cpu_dice, FLOW* flow, STATE* state, GAME* game, FADE* fade) {
-	switch (State) {
+	switch (GameState) {
 		//ƒ^ƒCƒgƒ‹‰æ–Ê
 	case TITLE_STATE:
 		title->titledraw(c);
 		if (fade->FadeCnt == 1) { fade->fadein(); }
-		if (fade->Alpha >= 1.0f) {
+		if (fade->Alpha >=MaxAlpha) {
 			fade->FadeCnt = 0;
-			State = RULE_STATE;
+			GameState = RULE_STATE;
 		}
 		if (isTrigger(KEY_Z)) {
 			playSound(Enter);
@@ -94,9 +94,9 @@ void STATE::update(CONTAINER* c, TITLE* title, RULE* rule, PLAY* play, RESULT* r
 		}
 		if (fade->FadeCnt == 1) {
 			fade->fadein();
-			if (fade->Alpha >= 1.0f) {
+			if (fade->Alpha >=MaxAlpha) {
 				fade->FadeCnt = 0;
-				State = PLAY_STATE;
+				GameState = PLAY_STATE;
 			}
 		}
 
@@ -133,7 +133,7 @@ void STATE::update(CONTAINER* c, TITLE* title, RULE* rule, PLAY* play, RESULT* r
 				playSound(Enter);
 				stopSound(ResultBgm);
 				playLoopSound(TitleBgm);
-				State = TITLE_STATE;
+				GameState = TITLE_STATE;
 			}
 			break;
 		}

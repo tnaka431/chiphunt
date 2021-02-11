@@ -29,6 +29,8 @@ private:
 	const float StringHChipPy = 820.0f;
 	const float StringGChipPy = 530.0f;
 	const float GiveChipImgPy = 620.0f;
+	const int Divided = 5;
+
 };
 /*class PLAYER_CHIP :public CHIP {
 	void init(CONTAINER* c);

@@ -6,7 +6,7 @@
 
 
 void PLAYER_DICE::player_diceinit(CONTAINER* c) {
-	for (int i = 0; i < 6; i++) {
+	for (int i = 0; i < DiceEye; i++) {
 		DiceImg[i] = c->diceimg[i];
 	}
 	DicePx = c->playerdice_px;
@@ -28,34 +28,34 @@ void PLAYER_DICE::player_diceupdate() {
 	}
 
 	if (DiceCnt == 1) {
-		for (int i = 0; i < 6; i++) {
-			Dice[i] = getRand() % 6;
+		for (int i = 0; i < DiceEye; i++) {
+			Dice[i] = getRand() % DiceEye;
 			Deme[i] = Dice[i];
 		}
 	}
 	
 }
 void PLAYER_DICE::player_dicedraw(NUMBER*num) {
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < DiceUpNumber; i++) {
 		drawImage(DiceImg[Dice[i]], DicePx + Interval * i, DicePy);
 
 	}
-	for (int i = 3; i < 5; i++) {
+	for (int i = DiceUpNumber; i < DiceNumber; i++) {
 		drawImage(DiceImg[Dice[i]], (DicePx + halfInterval) + Interval * (i - 3), (DicePy + Interval));
 	}
 	//ƒ_ƒCƒX‚Ì”
 	num->NumberPx = DiceNumberPx;
 	num->NumberPy = DiceNumberPy;
-	DiceSum = Deme[0] + Deme[1] + Deme[2] + Deme[3] + Deme[4] + 5;
+	DiceSum = Deme[0] + Deme[1] + Deme[2] + Deme[3] + Deme[4] + DiceNumber;
 	num->Value = DiceSum;
 	num->s_numberdraw();
-	drawImage(S_Dice, 1500.0f, 800.0f);
+	drawImage(S_Dice, S_DicePx, S_DicePy);
 }
 void PLAYER_DICE::player_dicenew() {
-	for (int i = 0; i < 6; i++) {
+	for (int i = 0; i < DiceEye; i++) {
 		Dice[i] = 0;
 	}
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < DiceNumber; i++) {
 		Deme[i] = 0;
 	}
 	DiceCnt = 0;

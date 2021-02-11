@@ -8,8 +8,8 @@
 
 void PLAYER_CARD::player_cardinit(CONTAINER* c) {
 	AllCardImg = c->allcardimg;
-	for (int i = 0; i < 4; i++) {
-		for (int j = 0; j < 13; j++) {
+	for (int i = 0; i < Handle; i++) {
+		for (int j = 0; j < Number; j++) {
 			CardImg[j + i * 13] = divideImage(AllCardImg, 19 + 140 * j, 13 + 196 * i, 121, 180);
 		}
 	}
@@ -20,18 +20,18 @@ void PLAYER_CARD::player_cardinit(CONTAINER* c) {
 	S_Card = c->card;
 
 	AllBarstImg = c->allburstcardimg;
-	for (int i = 0; i < 4; i++) {
-		for (int j = 0; j < 13; j++) {
+	for (int i = 0; i < Handle; i++) {
+		for (int j = 0; j < Number; j++) {
 			BarstImg[j + i * 13] = divideImage(AllBarstImg, 19 + 140 * j, 13 + 196 * i, 121, 180);
 		}
 	}
 }
 void PLAYER_CARD::player_cardupdate() {
 	if (isTrigger(KEY_Z)) {
-		if (CardCnt < 13) {
-			while (Cnt < CardCnt+1) {
+		if (CardCnt < Number) {
+			while (Cnt < CardCnt+OnePuls) {
 				Flag = 0;
-				CardNumber = getRand() % 52;
+				CardNumber = getRand() % allcard;
 				Card[TrumpNumber] = CardImg[CardNumber];
 				BarstCard[BarstNumber]=BarstImg[CardNumber];
 				for (int i = 0; i < TrumpNumber; i++) {
@@ -45,7 +45,7 @@ void PLAYER_CARD::player_cardupdate() {
 				}
 			}
 		DipCard++;
-		Player_CardTotal += (CardNumber % 13) + 1;
+		Player_CardTotal += (CardNumber % Number) + OnePuls;
 		TrumpNumber++;
 		BarstNumber++;
 		CardCnt++;
@@ -54,13 +54,13 @@ void PLAYER_CARD::player_cardupdate() {
 }
 void PLAYER_CARD::player_carddraw(NUMBER*num,PLAYER_DICE*dice) {
 	if (dice->DiceSum >= Player_CardTotal) {
-		for (int i = 0; i < 13; i++) {
+		for (int i = 0; i < Number; i++) {
 			if (DipCard > i) { drawImage(Card[i], PlayerCard_Px + Interval * i, PlayerCard_Py); }
 
 		}
 	}
 	else {
-		for (int i = 0; i < 13; i++) {
+		for (int i = 0; i < Number; i++) {
 			if (DipCard > i) { drawImage(BarstCard[i], PlayerCard_Px + Interval * i, PlayerCard_Py); }
 		}
 	}
@@ -72,7 +72,7 @@ void PLAYER_CARD::player_carddraw(NUMBER*num,PLAYER_DICE*dice) {
 
 }
 void PLAYER_CARD::player_cardnew() {
-	for (int i = 0; i < 13; i++) {
+	for (int i = 0; i < Number; i++) {
 		Card[i] = 0;
 	}
 	CardNumber = 0;
@@ -83,7 +83,7 @@ void PLAYER_CARD::player_cardnew() {
 	Flag = 0;
 	Cnt = 0;
 	BarstNumber = 0;
-	for (int i = 0; i < 13; i++) {
+	for (int i = 0; i < Number; i++) {
 		BarstCard[i] = 0;
 	}
 
